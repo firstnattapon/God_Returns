@@ -126,34 +126,117 @@ class Run_model(object) :
 if __name__ == "__main__":
     st.subheader('information\n')
     st.markdown("""\n
-    # God_Returns
-    ![N|Solid](https://swobj.xingassets.com/v1/companies/public-assets/img/custom/cp/assets/logo/f/c/f/24527/square_256px/profilbild.jpg?1582285825)
-    ___
-    ***Input  parameter***  Sidebar
-    Column         | ความหมาย
-    ---------------| ----------------------
-    Time           |  loop_Start ถึง loop_End\n   
-    Data           |  Markets Symbol จาก Ftx\n  
-    TimeFrame      |  1H , 4H , 1D , 1W\n  
-    Loop_Start     |  เริ่ม cycle\n   
-    Loop_Start     |  จบ cycle\n        
-    Lnput F(x)     |  ฟังก์ชั่นที่สนใจ\n       
-    Length_Param   |  Param  ฟังก์ชั่น\n     
-    ____
-    ***God_Returns***  Data Frame\n    
-    Column         | ความหมาย\n  
-    ---------------| ----------------------
-    Time   | loop_start ถึง loop_end      |
-    OHLC4   | (Open + High + low + close / 4)  ตัวแทนของราคา  |
-    Mk_Returntime + 1 | (Market Returntime time +1 ) ผลตอบแทนของวันพรุ่งนี้   |
-    God_Buysell    | ผลตอบแทนสูงสุดของ Buy & Sell   ขอของวันพรุ่งนี้|
-    God_Buyonly    |  ผลตอบแทนสูงสุดของ Buy  ของวันพรุ่งนี้|
-    God_Sellonly   | ผลตอบแทนสูงสุดของ Sell   ของวันพรุ่งนี้|
-    Cum_Godbuyonly |  Cumulative ผลตอบแทนสะสมของ Buy   |
-    Cum_Godsellonly |  Cumulative ผลตอบแทนสะสมของ Sell |
-    Cum_Buysell   | Cumulative ผลตอบแทนสะสมของ Buysell |
-    Cum_Buyhold   | Cumulative  ผลตอบแทนซื้อถือยาว  |
-    ____""")
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Welcome file</title>
+          <link rel="stylesheet" href="https://stackedit.io/style.css" />
+        </head>
+
+        <body class="stackedit">
+          <div class="stackedit__html"><h1 id="god_returns">God_Returns</h1>
+        <p><img src="https://swobj.xingassets.com/v1/companies/public-assets/img/custom/cp/assets/logo/f/c/f/24527/square_256px/profilbild.jpg?1582285825" alt="N|Solid"></p>
+        <hr>
+        <p><em><strong>Input  parameter</strong></em>  Sidebar</p>
+
+        <table>
+        <thead>
+        <tr>
+        <th>Column</th>
+        <th>ความหมาย</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Time</td>
+        <td>loop_Start ถึง loop_End</td>
+        </tr>
+        <tr>
+        <td>Data</td>
+        <td>Markets Symbol จาก Ftx</td>
+        </tr>
+        <tr>
+        <td>TimeFrame</td>
+        <td>1H , 4H , 1D , 1W</td>
+        </tr>
+        <tr>
+        <td>Loop_Start</td>
+        <td>เริ่ม cycle</td>
+        </tr>
+        <tr>
+        <td>Loop_Start</td>
+        <td>จบ cycle</td>
+        </tr>
+        <tr>
+        <td>Lnput F(x)</td>
+        <td>ฟังก์ชั่นที่สนใจ</td>
+        </tr>
+        <tr>
+        <td>Length_Param</td>
+        <td>Param  ฟังก์ชั่น</td>
+        </tr>
+        </tbody>
+        </table><hr>
+        <p><em><strong>God_Returns</strong></em>  Data Frame</p>
+
+        <table>
+        <thead>
+        <tr>
+        <th>Column</th>
+        <th>ความหมาย</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Time</td>
+        <td>loop_start ถึง loop_end</td>
+        </tr>
+        <tr>
+        <td>OHLC4</td>
+        <td>(Open + High + low + close / 4)  ตัวแทนของราคา</td>
+        </tr>
+        <tr>
+        <td>Mk_Returntime + 1</td>
+        <td>(Market Returntime time +1 ) ผลตอบแทนของวันพรุ่งนี้</td>
+        </tr>
+        <tr>
+        <td>God_Buysell + 1</td>
+        <td>ผลตอบแทนสูงสุดของ Buy &amp; Sell   ขอของวันพรุ่งนี้</td>
+        </tr>
+        <tr>
+        <td>God_Buyonly + 1</td>
+        <td>ผลตอบแทนสูงสุดของ Buy  ของวันพรุ่งนี้</td>
+        </tr>
+        <tr>
+        <td>God_Sellonly + 1</td>
+        <td>ผลตอบแทนสูงสุดของ Sell   ของวันพรุ่งนี้</td>
+        </tr>
+        <tr>
+        <td>Cum_Godbuyonly</td>
+        <td>Cumulative ผลตอบแทนสะสมของ Buy</td>
+        </tr>
+        <tr>
+        <td>Cum_Godsellonly</td>
+        <td>Cumulative ผลตอบแทนสะสมของ Sell</td>
+        </tr>
+        <tr>
+        <td>Cum_Buysell</td>
+        <td>Cumulative ผลตอบแทนสะสมของ Buysell</td>
+        </tr>
+        <tr>
+        <td>Cum_Buyhold</td>
+        <td>Cumulative  ผลตอบแทนซื้อถือยาว</td>
+        </tr>
+        </tbody>
+        </table><hr>
+        </div>
+        </body>
+
+        </html>
+        """, unsafe_allow_html=True)
 
 
 
