@@ -257,12 +257,12 @@ if __name__ == "__main__":
         pyplot = model.god_chart()
         god = model.god_returns()
         st.write(god)
-        st.write('Cumulative GodmaxBuy  :',round ((god['God_Buyonly+1'][-1]), 3))
-        st.write('Cumulative GodmaxSell :',round ((god['God_Sellonly+1'][-1]), 3))
-        st.write('Cumulative GodBuy&Sell:',round ((god['God_Buysell+1'][-1]), 3))
-        st.write('Cumulative Buyhold    :',round ((god['Mk_Returntime+1'][-1]), 3))
-        
-        st.write("_"*45)
+        st.write('Cumulative GodmaxBuy  :',round ((god['Cum_Godbuyonly][-1]), 3)*100 )
+        st.write('Cumulative GodmaxSell :',round ((god['Cum_Godsellonly'][-1]), 3)*100)
+        st.write('Cumulative GodBuy&Sell:',round ((god['Cum_Buysell'][-1]), 3)*100)
+        st.write('Cumulative Buyhold    :',round ((god['Cum_Buyhold'][-1]), 3)*100 )
+     
+                st.write("_"*45)
         st.subheader('F(x) Returns\n')
         pyplot = model.fx_scatter()
         pyplot = model.fx_chart()
