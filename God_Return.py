@@ -13,18 +13,16 @@ pd.set_option("display.precision", 6)
 
 class Run_model(object) :
     def __init__(self ):
-        self.pair_data = "BTC-PERP"
-        self.timeframe = "1h"  
+        self.pair_data  = "BTC-PERP"
+        self.timeframe  = "1h"  
         self.loop_start = dt.datetime(2020, 6 , 30  , 0, 0)
-        self.loop_end = dt.datetime(2020, 7 , 10  , 0, 0)
-        self.input  = 'rsi'
-        self.length = 30
-        
-    def st (self):
-        self.Buyonly     = st.checkbox('Buyonly')
-        self.Sellonly    = st.checkbox('Sellonly')
-        self.BuySell     = st.checkbox('BuySell')
-        self.CumBuyhold  = st.checkbox('CumBuyhold')
+        self.loop_end   = dt.datetime(2020, 7 , 10  , 0, 0)
+        self.input      = 'rsi'
+        self.length     = 30
+        self.Buyonly    = st.checkbox('Buyonly')
+        self.Sellonly   = st.checkbox('Sellonly')
+        self.BuySell    = st.checkbox('BuySell')
+        self.CumBuyhold = st.checkbox('CumBuyhold')
 
     def dataset (self):
         self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
@@ -90,8 +88,7 @@ class Run_model(object) :
         
     def fx_chart (self):
         fx_chart = self.fx()
-        plt.figure(figsize=(8,5))
-
+        plt.figure(figsize=(12,8))
         if self.Buyonly :
             plt.plot(fx_chart['F(x)_CumBuyonly'], color='k',  alpha=0.60 )
         if self.Sellonly :
@@ -104,7 +101,7 @@ class Run_model(object) :
 
     def god_chart (self):
         god_chart = self.god_returns()
-        plt.figure(figsize=(8,5))
+        plt.figure(figsize=(12,8))
         if self.Buyonly :
             plt.plot(god_chart['Cum_Godbuyonly'], color='k',  alpha=0.60 )
         if self.Sellonly : 
