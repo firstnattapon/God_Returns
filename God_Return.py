@@ -49,12 +49,12 @@ class Run_model(object) :
         god_returns = self.represent()
         god_returns['Mk_Returntime+1']  = np.log(god_returns['OHLC4'] / god_returns['OHLC4'].shift(1))
         god_returns['Mk_Returntime+1'] = god_returns['Mk_Returntime+1'].shift(-1)
-        god_returns['God_Buyonly'] = np.where( god_returns['Mk_Returntime+1'] > 0 ,  god_returns['Mk_Returntime+1']    , 0  )
-        god_returns['God_Sellonly'] = np.where( god_returns['Mk_Returntime+1'] < 0 ,  abs(god_returns['Mk_Returntime+1'])    , 0  )
-        god_returns['God_Buysell'] = np.where( True ,  abs(god_returns['Mk_Returntime+1'])  ,  abs(god_returns['Mk_Returntime+1'])  )
-        god_returns['Cum_Godbuyonly'] = np.cumsum(god_returns['God_Buyonly'])
-        god_returns['Cum_Godsellonly'] = np.cumsum(god_returns['God_Sellonly'])
-        god_returns['Cum_Buysell'] = np.cumsum(god_returns['God_Buysell'])
+        god_returns['God_Buyonly+1'] = np.where( god_returns['Mk_Returntime+1'] > 0 ,  god_returns['Mk_Returntime+1']    , 0  )
+        god_returns['God_Sellonly+1'] = np.where( god_returns['Mk_Returntime+1'] < 0 ,  abs(god_returns['Mk_Returntime+1'])    , 0  )
+        god_returns['God_Buysell+1'] = np.where( True ,  abs(god_returns['Mk_Returntime+1'])  ,  abs(god_returns['Mk_Returntime+1'])  )
+        god_returns['Cum_Godbuyonly'] = np.cumsum(god_returns['God_Buyonly+1'])
+        god_returns['Cum_Godsellonly'] = np.cumsum(god_returns['God_Sellonly+1'])
+        god_returns['Cum_Buysell'] = np.cumsum(god_returns['God_Buysell+1'])
         god_returns['Cum_Buyhold']  = np.cumsum(god_returns['Mk_Returntime+1'])
         god_returns = god_returns.iloc[: , -9:]
         return god_returns
