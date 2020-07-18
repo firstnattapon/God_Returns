@@ -119,17 +119,20 @@ if __name__ == "__main__":
     model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
     model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 17, 0, 0)))
 
+    
+    
     st.sidebar.text("_"*45)
     model.input = selectbox('rsi')
     model.length = st.sidebar.slider('length_parameter' , 1 , 500 , 30)
     st.sidebar.text("_"*45)
     
+    pyplot = model.god_chart()
     st.write(model.god_returns())
+    st.write("_"*45)
+    pyplot = model.fx_scatter()
+    pyplot = model.fx_chart()
     st.write(model.fx())
     
-    pyplot = model.fx_scatter
-    pyplot = model.fx_chart
-    pyplot = model.god_chart
 
 # # st.sidebar.text("_"*45)
 # pyplot = model.chart
