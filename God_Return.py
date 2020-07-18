@@ -113,6 +113,7 @@ class Run_model(object) :
 
 if __name__ == "__main__":
     st.subheader('information\n')
+    st.checkbox('information')
     st.markdown("""\n
         <!DOCTYPE html>
         <html>
