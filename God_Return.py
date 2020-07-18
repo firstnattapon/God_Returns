@@ -135,7 +135,6 @@ if __name__ == "__main__":
           <link rel="stylesheet" href="https://stackedit.io/style.css" />
         </head>
         <body class="stackedit">
-          <div class="stackedit__html"><h1 id="god_returns">God_Returns</h1>
         <p><img src="https://swobj.xingassets.com/v1/companies/public-assets/img/custom/cp/assets/logo/f/c/f/24527/square_256px/profilbild.jpg?1582285825" alt="N|Solid"></p><hr>
         <p><em><strong>God_Returns</strong></em>  Data Frame</p>
         <table>
@@ -234,8 +233,7 @@ if __name__ == "__main__":
 
 
 
-    st.write("_"*45)
-    st.subheader('method\n')
+    st.subheader('Method\n')
     model =  Run_model()
     st.sidebar.header('....header..... \n')
     selectbox = lambda y : st.sidebar.selectbox('input F(x)',
