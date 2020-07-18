@@ -87,7 +87,7 @@ class Run_model(object) :
         plt.plot(fx_chart['F(x)_CumBuyonly'], color='k',  alpha=0.60 )
         plt.plot(fx_chart['F(x)_CumSellonly'], color='g',  alpha=0.60 )
         plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 )
-        plt.show()
+        st.pyplot()
 
     def god_chart (self):
         god_chart = self.god_returns()
@@ -95,7 +95,7 @@ class Run_model(object) :
         plt.plot(god_chart['Cum_Godbuyonly'], color='k',  alpha=0.60 )
         plt.plot(god_chart['Cum_Godsellonly'], color='g',  alpha=0.60 )
         plt.plot(god_chart['Cum_Buysell'], color='r',  alpha=0.60 )
-        plt.show()
+        st.pyplot()
 
 #____________________________________________________________________________  
 
