@@ -255,7 +255,13 @@ if __name__ == "__main__":
     if st.checkbox('Details', value = True):
         st.subheader('God Returns\n')
         pyplot = model.god_chart()
-        st.write(model.god_returns())
+        god = model.god_returns()
+        st.write(god)
+        st.write('Cumulative GodmaxBuy  :{:.3f}'.format(god['God_Buyonly+1'][-1]),
+                 'Cumulative GodmaxSell :{:.3f}'.format(god['God_Sellonly+1'][-1]),
+                 'Cumulative GodBuy&Sell:{:.3f}'.format(god['God_Buysell+1'][-1]),
+                 'Cumulative Buyhold    :{:.3f}'.format(god['Mk_Returntime+1'][-1]))
+        
         st.write("_"*45)
         st.subheader('F(x) Returns\n')
         pyplot = model.fx_scatter()
@@ -265,14 +271,7 @@ if __name__ == "__main__":
         st.write('Cumulative Buy : {:.3f}'.format(fx['F(x)_CumBuyonly'][-1]),
             'Cumulative Sell : {:.3f}'.format(fx['F(x)_CumSellonly'][-1]),
             'Cumulative Buy&Sell : {:.3f}'.format(fx['F(x)_CumBuySell'][-1]),
-            'Cumulative Buyhold : {:.3f}'.format(fx['F(x)_CumBuyBuyhold'][-1]))
-     
-#     fx_toaction['F(x)_CumBuyonly'] = np.cumsum(fx_toaction['F(x)_BuyReturn'])
-#     fx_toaction['F(x)_SellReturn'] = np.where(fx_toaction['F(x)_Action'] == 'sell'  , -fx_toaction['Mk_Returntime+1'] ,  0)
-#     fx_toaction['F(x)_CumSellonly'] = np.cumsum(fx_toaction['F(x)_SellReturn'])
-#     fx_toaction['F(x)_BuySellReturn'] = np.where( fx_toaction['F(x)_Action'] == 'buy' , fx_toaction['Mk_Returntime+1'] , -fx_toaction['Mk_Returntime+1'])
-#     fx_toaction['F(x)_CumBuySell'] = np.cumsum(fx_toaction['F(x)_BuySellReturn'])
-#     fx_toaction['F(x)_CumBuyhold']  = np.cumsum(fx_toaction['Mk_Returntime+1'])
+            'Cumulative Buyhold : {:.3f}'.format(fx['F(x)_CumBuyhold'][-1]))
     
     st.write("_"*45)
     st.subheader('Python coding\n')
