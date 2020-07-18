@@ -113,18 +113,19 @@ if __name__ == "__main__":
             'quantile','rma','roc','rsi','rvi','short_run','sinwma','skew','slope','sma',
             'stdev','stoch','swma','t3','tema','trima','true_range','uo','variance',
             'vortex','vp','vwap','vwma','willr','wma','zlma','zscore'))
+    
+    st.sidebar.text("_"*45)
+    model.pair_data =   st.sidebar.text_input('data' , "BTC-PERP")
+    model.timeframe =   st.sidebar.selectbox('timeframe',('1h' , '5m' , '15m' , '1h', '4h' ,'1d'))
+    model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
+    model.loop_end =    np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 17, 0, 0)))
 
     st.sidebar.text("_"*45)
     model.input = selectbox('obv')
     st.sidebar.text("_"*45)
-    model.length = st.sidebar.slider('length_1' , 1 , 500 , 489)
+    model.length = st.sidebar.slider('length_parameter' , 1 , 500 , 489)
     st.sidebar.text("_"*45)
     
-    st.sidebar.text("_"*45)
-    model.pair_data = st.sidebar.text_input('data' , "TOMO-PERP")
-    model.timeframe = st.sidebar.selectbox('timeframe',('1h' , '5m' , '15m' , '1h', '4h' ,'1d'))
-#     model.start_test =  np.datetime64(st.sidebar.date_input('start_test', value= dt.datetime(2020, 7, 4, 0, 0)))
-
 # # st.sidebar.text("_"*45)
 # pyplot = model.chart
 # pyplot = model.nav
