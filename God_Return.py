@@ -135,7 +135,7 @@ if __name__ == "__main__":
           <link rel="stylesheet" href="https://stackedit.io/style.css" />
         </head>
         <body class="stackedit">
-        <p><img src="https://img.soccersuck.com/images/2020/07/18/profilbild-removebg-preview11e027b125057deb.png" alt="N|Solid"></p><hr>
+        <p><img src="https://img.soccersuck.com/images/2020/07/18/profilbild-removebg-preview11e027b125057deb6666.png" alt="N|Solid"></p><hr>
         <p><em><strong>God_Returns</strong></em>  Data Frame</p>
         <table>
         <thead>
