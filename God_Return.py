@@ -86,6 +86,7 @@ class Run_model(object) :
         plt.plot(dataset.OHLC4 , color='k' , alpha=0.20)
         plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 ,  label= 'fxtoaction = buy')
         plt.plot(dataset.sell , 'o', color='r' , alpha=0.50 ,  label= 'fxtoaction = sell')
+        plt.axhline(y=0.0, color='k', linestyle='-')
         plt.legend(fontsize=12)
         plt.xlabel('price',fontsize=14)
         plt.ylabel('%',fontsize=14)
@@ -98,6 +99,7 @@ class Run_model(object) :
         plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.60 ,label= 'F(x)_CumSell' )
         plt.plot(fx_chart['F(x)_CumBuySell'], color='k',  alpha=0.60 , label= 'F(x)_CumBuy&Sell' )
         plt.plot(fx_chart['F(x)_CumBuyhold'], color='m',  alpha=0.60 , label= 'F(x)_CumBuyhold')
+        plt.axhline(y=0.0, color='k', linestyle='-')
         plt.legend(fontsize=12)
         plt.xlabel('cycle',fontsize=14)
         plt.ylabel('%',fontsize=14)
@@ -241,7 +243,7 @@ if __name__ == "__main__":
             'stdev','stoch','swma','t3','tema','trima','true_range','uo','variance',
             'vortex','vp','vwap','vwma','willr','wma','zlma','zscore'))
     
-    model.pair_data =   st.sidebar.selectbox('data' ,('BTC-PERP', 'XRP-PERP')
+    model.pair_data =   st.sidebar.selectbox('data' ,('BTC-PERP', 'XRP-PERP'))
     model.timeframe =   st.sidebar.selectbox('timeframe',('1h', '4h' ,'1d' ,'1w'))
     model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
     model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 18, 0, 0)))
