@@ -268,10 +268,10 @@ if __name__ == "__main__":
         pyplot = model.fx_chart()
         fx = model.fx()
         st.write(fx)
-        st.write('Cumulative Buy : {:.3f}'.format(fx['F(x)_CumBuyonly'][-1]),
-            'Cumulative Sell : {:.3f}'.format(fx['F(x)_CumSellonly'][-1]),
-            'Cumulative Buy&Sell : {:.3f}'.format(fx['F(x)_CumBuySell'][-1]),
-            'Cumulative Buyhold : {:.3f}'.format(fx['F(x)_CumBuyhold'][-1]))
+        st.write('Cumulative Buy:',(fx['F(x)_CumBuyonly'][-1]),
+            'Cumulative Sell    :',(fx['F(x)_CumSellonly'][-1]),
+            'Cumulative Buy&Sell:',(fx['F(x)_CumBuySell'][-1]),
+            'Cumulative Buyhold :',(fx['F(x)_CumBuyhold'][-1]))
     
     st.write("_"*45)
     st.subheader('Python coding\n')
