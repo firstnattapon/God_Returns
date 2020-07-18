@@ -124,6 +124,10 @@ class Run_model(object) :
 #____________________________________________________________________________  
 
 if __name__ == "__main__":
+    st.subheader('information\n')
+
+    st.write("_"*45)
+    st.subheader('method\n')
     model =  Run_model()
     st.sidebar.header('....header..... \n')
     selectbox = lambda y : st.sidebar.selectbox('input F(x)',
