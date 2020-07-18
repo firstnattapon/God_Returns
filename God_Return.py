@@ -75,6 +75,7 @@ class Run_model(object) :
         fx_toaction['F(x)_BuySellReturn'] = np.where( fx_toaction['F(x)_Action'] == 'buy' , fx_toaction['Mk_Returntime+1'] , -fx_toaction['Mk_Returntime+1'])
         fx_toaction['F(x)_CumBuySell'] = np.cumsum(fx_toaction['F(x)_BuySellReturn'])
         fx_toaction['F(x)_CumBuyhold']  = np.cumsum(fx_toaction['Mk_Returntime+1'])
+        fx_toaction = fx_toaction.dropna()
         return  fx_toaction
 
     def fx_scatter (self):
@@ -240,13 +241,13 @@ if __name__ == "__main__":
             'stdev','stoch','swma','t3','tema','trima','true_range','uo','variance',
             'vortex','vp','vwap','vwma','willr','wma','zlma','zscore'))
     
-    model.pair_data =   st.sidebar.text_input('data' , "BTC-PERP")
-    model.timeframe =   st.sidebar.selectbox('timeframe',('1h' , '5m' , '15m' , '1h', '4h' ,'1d'))
+    model.pair_data =   st.sidebar.selectbox('data' ,('BTC-PERP', 'XRP-PERP')
+    model.timeframe =   st.sidebar.selectbox('timeframe',('1h', '4h' ,'1d' ,'1w'))
     model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
-    model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 17, 0, 0)))
+    model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 18, 0, 0)))
     
     model.input = selectbox('rsi')
-    model.length = st.sidebar.slider('length_parameter' , 1 , 60 , 30)
+    model.length = st.sidebar.slider('length_parameter' , 1 , 30 , 15)
   
     st.write("_"*45)
     st.subheader('Details\n')
