@@ -261,7 +261,7 @@ if __name__ == "__main__":
                  ('Cumulative GodmaxSell :',round ((god['Cum_Godsellonly'][-1]),3)*100, '%' ))
 #         st.write('Cumulative GodmaxSell :',round ((god['Cum_Godsellonly'][-1]),3)*100, '%' ))
         st.write('Cumulative GodBuy&Sell:',round ((god['Cum_Buysell'][-1]), 3)*100, '%',
-                 ('Cumulative Buyhold    :',round ((god['Cum_Buyhold'][-1]), 3)*100, '%' )
+                 ('Cumulative Buyhold    :',round ((god['Cum_Buyhold'][-1]), 3)*100, '% ))
                  
 #         st.write('Cumulative Buyhold    :',round ((god['Cum_Buyhold'][-1]), 3)*100, '%' )
      
@@ -276,8 +276,7 @@ if __name__ == "__main__":
                                                        
 #         st.write('Cumulative Sell    :' ,round((fx['F(x)_CumSellonly'][-1]), 3)*100, '%' )
         st.write('Cumulative Buy&Sell:' , round((fx['F(x)_CumBuySell'][-1]), 3)*100, '%',
-                ('Cumulative Buyhold :' , round((fx['F(x)_CumBuyhold'][-1]), 3)*100, '%' )
-                )
+                ('Cumulative Buyhold :' , round((fx['F(x)_CumBuyhold'][-1]), 3)*100, '%' ))
 #         st.write('Cumulative Buyhold :' , round((fx['F(x)_CumBuyhold'][-1]), 3)*100, '%' )
     
     st.write("_"*45)
