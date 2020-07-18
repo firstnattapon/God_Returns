@@ -19,10 +19,10 @@ class Run_model(object) :
         self.loop_end   = dt.datetime(2020, 7 , 10  , 0, 0)
         self.input      = 'rsi'
         self.length     = 30
+        self.BuySell    = st.checkbox('BuySell', value = True)
         self.Buyonly    = st.checkbox("Buyonly")
         self.Sellonly   = st.checkbox('Sellonly')
-        self.BuySell    = st.checkbox('BuySell')
-        self.Buyhold    = st.checkbox('Buyhold' , value = True)
+        self.Buyhold    = st.checkbox('Buyhold')
 
     def dataset (self):
         self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
@@ -81,9 +81,18 @@ class Run_model(object) :
         dataset['buy'] = dataset.apply(lambda x : np.where(x['F(x)_Action'] == 'buy' , x.OHLC4 , None) , axis=1)
         dataset['sell'] =  dataset.apply(lambda x : np.where(x['F(x)_Action'] == 'sell'  , x.OHLC4 , None) , axis=1)
         plt.figure(figsize=(12,8))
-        plt.plot(dataset.OHLC4 , color='k' , alpha=0.20 )
-        plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 )
-        plt.plot(dataset.sell , 'o', color='r' , alpha=0.50)      
+        if self.BuySell :
+            plt.plot(dataset.OHLC4 , color='k' , alpha=0.20 )
+            plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 )
+            plt.plot(dataset.sell , 'o', color='r' , alpha=0.50)    
+        if self.Buyonly :
+            plt.plot(dataset.OHLC4 , color='k' , alpha=0.20 )
+            plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 )
+        if self.Sellonly :
+            plt.plot(dataset.OHLC4 , color='k' , alpha=0.20 )
+            plt.plot(dataset.sell , 'o', color='r' , alpha=0.50)    
+        if self.Buyhold :    
+            plt.plot(dataset.OHLC4 , color='k' , alpha=0.20 )
         st.pyplot()
         
     def fx_chart (self):
@@ -134,10 +143,8 @@ if __name__ == "__main__":
     model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
     model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 17, 0, 0)))
     
-    st.sidebar.text("_"*45)
     model.input = selectbox('rsi')
     model.length = st.sidebar.slider('length_parameter' , 1 , 60 , 30)
-    st.sidebar.text("_"*45)
     
     pyplot = model.god_chart()
     st.write(model.god_returns())
@@ -145,7 +152,6 @@ if __name__ == "__main__":
     pyplot = model.fx_scatter()
     pyplot = model.fx_chart()
     st.write(model.fx())
-    st.sidebar.text("_"*45)
     
 # # st.sidebar.text("_"*45)
 # pyplot = model.chart
