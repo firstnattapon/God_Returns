@@ -258,7 +258,7 @@ if __name__ == "__main__":
         st.write(model.fx())
      
     st.write("_"*45)
-    code = """
+    code = """\n
 class Run_model(object) :
     def __init__(self ):
         self.pair_data = "BTC-PERP"
