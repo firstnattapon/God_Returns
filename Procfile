@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run TOMO.py
+web: sh setup.sh && streamlit run God_Return.py
