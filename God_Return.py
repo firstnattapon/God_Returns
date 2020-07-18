@@ -82,8 +82,8 @@ class Run_model(object) :
         dataset['sell'] =  dataset.apply(lambda x : np.where(x['F(x)_Action'] == 'sell'  , x.OHLC4 , None) , axis=1)
         plt.figure(figsize=(12,8))
         plt.plot(dataset.OHLC4 , color='k' , alpha=0.20)
-        plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50
-        plt.plot(dataset.sell , 'o', color='r' , alpha=0.50   
+        plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 )
+        plt.plot(dataset.sell , 'o', color='r' , alpha=0.50 ) 
         plt.xlabel('price',fontsize=14)
         plt.ylabel('%',fontsize=14)
         st.pyplot()
