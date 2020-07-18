@@ -82,8 +82,8 @@ class Run_model(object) :
         dataset['sell'] =  dataset.apply(lambda x : np.where(x['F(x)_Action'] == 'sell'  , x.OHLC4 , None) , axis=1)
         plt.figure(figsize=(12,8))
         plt.plot(dataset.OHLC4 , color='k' , alpha=0.20)
-        plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 )
-        plt.plot(dataset.sell , 'o', color='r' , alpha=0.50 ) 
+        plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 ,  label= 'fxtoaction = buy')
+        plt.plot(dataset.sell , 'o', color='r' , alpha=0.50 ,  label= 'fxtoaction = sell')
         plt.xlabel('price',fontsize=14)
         plt.ylabel('%',fontsize=14)
         st.pyplot()
@@ -116,7 +116,7 @@ class Run_model(object) :
 
 if __name__ == "__main__":
     st.subheader('Information\n')
-    if st.checkbox('information'):
+    if st.checkbox('Information'):
         st.markdown("""\n
             <!DOCTYPE html>
             <html>
@@ -258,6 +258,8 @@ if __name__ == "__main__":
         st.write(model.fx())
      
     st.write("_"*45)
+    
+    st.subheader('python coding\n')
     if st.checkbox('python coding', value = True):
 
         code = """\n
@@ -348,9 +350,6 @@ if __name__ == "__main__":
 #     st.write(pyplot.iloc[: , :])
 # st.text("")
 # st.write('\n\nhttps://github.com/firstnattapon/test-stream/edit/master/app.py')
-
-
-
 
 
 
