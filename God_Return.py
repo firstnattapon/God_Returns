@@ -22,7 +22,7 @@ class Run_model(object) :
 
     def dataset (self):
         self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
-        ohlcv = self.exchange.fetch_ohlcv(self.pair_data, self.timeframe  , limit=5000)
+        ohlcv = self.exchange.fetch_ohlcv(self.pair_data, self.timeframe  , limit=500)
         ohlcv = self.exchange.convert_ohlcv_to_trading_view(ohlcv)
         df =  pd.DataFrame(ohlcv)
         df.t = df.t.apply(lambda  x :  datetime.fromtimestamp(x))
