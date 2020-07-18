@@ -69,6 +69,7 @@ class Run_model(object) :
         fx_toaction['F(x)_CumSellonly'] = np.cumsum(fx_toaction['F(x)_SellReturn'])
         fx_toaction['F(x)_BuySellReturn'] = np.where( fx_toaction['F(x)_Action'] == 'buy' , fx_toaction['Mk_Returntime+1'] , -fx_toaction['Mk_Returntime+1'])
         fx_toaction['F(x)_CumBuySell'] = np.cumsum(fx_toaction['F(x)_BuySellReturn'])
+        fx_toaction['F(x)_CumBuyhold']  = np.cumsum(fx_toaction['Mk_Returntime+1'])
         return  fx_toaction
 
     def fx_scatter (self):
@@ -87,7 +88,7 @@ class Run_model(object) :
         plt.plot(fx_chart['F(x)_CumBuyonly'], color='k',  alpha=0.60 )
         plt.plot(fx_chart['F(x)_CumSellonly'], color='g',  alpha=0.60 )
         plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 )
-        plt.plot(fx_chart['F(x)_Cum_Buyhold'], color='r',  alpha=0.60 )
+        plt.plot(fx_chart['F(x)_CumBuyhold'], color='r',  alpha=0.60 )
         st.pyplot()
 
     def god_chart (self):
