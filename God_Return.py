@@ -262,7 +262,10 @@ if __name__ == "__main__":
         pyplot = model.fx_chart()
         fx = model.fx()
         st.write(fx)
-        st.write(fx['F(x)_CumBuyonly'][-1])
+        st.write('Cumulative Buy : {:.3f}'.format(fx['F(x)_CumBuyonly'][-1]),
+            'Cumulative Sell : {:.3f}'.format(fx['F(x)_CumSellonly'][-1]),
+            'Cumulative Buy&Sell : {:.3f}'.format(fx['F(x)_CumBuySellonly'][-1]),
+            'Cumulative Buyhold : {:.3f}'.format(fx['F(x)_CumBuyBuyhold'][-1]))
      
 #     fx_toaction['F(x)_CumBuyonly'] = np.cumsum(fx_toaction['F(x)_BuyReturn'])
 #     fx_toaction['F(x)_SellReturn'] = np.where(fx_toaction['F(x)_Action'] == 'sell'  , -fx_toaction['Mk_Returntime+1'] ,  0)
