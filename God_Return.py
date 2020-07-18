@@ -135,7 +135,7 @@ if __name__ == "__main__":
           <link rel="stylesheet" href="https://stackedit.io/style.css" />
         </head>
         <body class="stackedit">
-        <p><img src="https://swobj.xingassets.com/v1/companies/public-assets/img/custom/cp/assets/logo/f/c/f/24527/square_256px/profilbild.jpg?1582285825" alt="N|Solid"></p><hr>
+        <p><img src="https://img.soccersuck.com/images/2020/07/18/profilbild-removebg-preview11e027b125057deb.png" alt="N|Solid"></p><hr>
         <p><em><strong>God_Returns</strong></em>  Data Frame</p>
         <table>
         <thead>
@@ -162,11 +162,11 @@ if __name__ == "__main__":
         <td>เริ่ม cycle</td>
         </tr>
         <tr>
-        <td>Loop_Start</td>
+        <td>Loop_End</td>
         <td>จบ cycle</td>
         </tr>
         <tr>
-        <td>Lnput F(x)</td>
+        <td>Input F(x)</td>
         <td>ฟังก์ชั่นที่สนใจ</td>
         </tr>
         <tr>
