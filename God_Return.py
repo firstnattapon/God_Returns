@@ -116,7 +116,6 @@ class Run_model(object) :
 
 if __name__ == "__main__":
     model =  Run_model()
-    _ = model.st()
     st.sidebar.header('....header..... \n')
     selectbox = lambda y : st.sidebar.selectbox('input F(x)',
             ( y ,'accbands','ad','adx','ao','aroon','atr','bbands',
