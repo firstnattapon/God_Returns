@@ -147,11 +147,12 @@ if __name__ == "__main__":
     model.length = st.sidebar.slider('length_parameter' , 1 , 60 , 30)
   
     st.write("_"*45)
-    st.header('God_Returns\n')
+    st.subheader('God Returns\n')
     pyplot = model.god_chart()
     st.write(model.god_returns())
     st.write("_"*45)
-    st.header('F(x)_Returns\n')
+    
+    st.subheader('F(x) Returns\n')
     pyplot = model.fx_scatter()
     pyplot = model.fx_chart()
     st.write(model.fx())
