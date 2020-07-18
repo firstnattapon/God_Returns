@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import special as s
+import streamlit as st
 pd.set_option("display.precision", 6)
 # sns.set_style("whitegrid")
 
@@ -19,6 +20,7 @@ class Run_model(object) :
         self.input  = 'rsi'
         self.length = 30
 
+   @st.cache
     def dataset (self):
         self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
         ohlcv = self.exchange.fetch_ohlcv(self.pair_data, self.timeframe  , limit=5000)
@@ -28,7 +30,7 @@ class Run_model(object) :
         return df
 
     @property
-    def  loop (self):
+    def loop (self):
         df =  self.dataset()
         df = df[df.t >= self.loop_start] ; df = df[df.t <= self.loop_end]
         df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
@@ -36,7 +38,7 @@ class Run_model(object) :
         dataset = df  ; dataset = dataset.dropna()
         return dataset
 
-    def  represent (self):
+    def represent (self):
         df = self.loop ; df.ta.ohlc4(append=True)
         return df
 
@@ -54,7 +56,7 @@ class Run_model(object) :
         god_returns = god_returns.iloc[: , -9:]
         return god_returns
 
-    def  fx (self):
+    def fx (self):
         fx = self.represent()
         fx['Mk_Returntime+1']  = np.log(fx['OHLC4'] / fx['OHLC4'].shift(1))
         fx['Mk_Returntime+1'] = fx['Mk_Returntime+1'].shift(-1)
@@ -70,7 +72,7 @@ class Run_model(object) :
         fx_toaction['F(x)_CumBuySell'] = np.cumsum(fx_toaction['F(x)_BuySellReturn'])
         return  fx_toaction
 
-    def  fx_scatter (self):
+    def fx_scatter (self):
         dataset = self.fx()
         dataset['buy'] = dataset.apply(lambda x : np.where(x['F(x)_Action'] == 'buy' , x.OHLC4 , None) , axis=1)
         dataset['sell'] =  dataset.apply(lambda x : np.where(x['F(x)_Action'] == 'sell'  , x.OHLC4 , None) , axis=1)
@@ -80,7 +82,7 @@ class Run_model(object) :
         plt.plot(dataset.sell , 'o', color='r' , alpha=0.50)      
         plt.show()
         
-    def  fx_chart (self):
+    def fx_chart (self):
         fx_chart = self.fx()
         plt.figure(figsize=(12,8))
         plt.plot(fx_chart['F(x)_CumBuyonly'], color='k',  alpha=0.60 )
