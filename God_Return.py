@@ -257,11 +257,9 @@ if __name__ == "__main__":
         pyplot = model.god_chart()
         god = model.god_returns()
         st.write(god)
-        st.write('Cumulative GodmaxBuy  :',round ((god['Cum_Godbuyonly][-1]),3)*100 , '%',
-                 ('Cumulative GodmaxSell :',round ((god['Cum_Godsellonly'][-1]),3)*100, '%' ))
+        st.write('Cumulative GodmaxBuy  :',round ((god['Cum_Godbuyonly][-1]),3)*100 , '%','Cumulative GodmaxSell :',round ((god['Cum_Godsellonly'][-1]),3)*100, '%')
 #         st.write('Cumulative GodmaxSell :',round ((god['Cum_Godsellonly'][-1]),3)*100, '%' ))
-        st.write('Cumulative GodBuy&Sell:',round ((god['Cum_Buysell'][-1]), 3)*100, '%',
-                 ('Cumulative Buyhold    :',round ((god['Cum_Buyhold'][-1]), 3)*100, '% ))
+        st.write('Cumulative GodBuy&Sell:',round ((god['Cum_Buysell'][-1]), 3)*100, '%','Cumulative Buyhold    :',round ((god['Cum_Buyhold'][-1]), 3)*100, '% ))
                  
 #         st.write('Cumulative Buyhold    :',round ((god['Cum_Buyhold'][-1]), 3)*100, '%' )
      
