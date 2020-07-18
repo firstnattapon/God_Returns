@@ -257,10 +257,10 @@ if __name__ == "__main__":
         pyplot = model.god_chart()
         god = model.god_returns()
         st.write(god)
-        st.write('Cumulative GodmaxBuy  :{:.3f}'.format(god['God_Buyonly+1'][-1]),
-                 'Cumulative GodmaxSell :{:.3f}'.format(god['God_Sellonly+1'][-1]),
-                 'Cumulative GodBuy&Sell:{:.3f}'.format(god['God_Buysell+1'][-1]),
-                 'Cumulative Buyhold    :{:.3f}'.format(god['Mk_Returntime+1'][-1]))
+        st.write('Cumulative GodmaxBuy  :',round ((god['God_Buyonly+1'][-1]), 3))
+        st.write('Cumulative GodmaxSell :',round ((god['God_Sellonly+1'][-1]), 3))
+        st.write('Cumulative GodBuy&Sell:',round ((god['God_Buysell+1'][-1]), 3))
+        st.write('Cumulative Buyhold    :',round ((god['Mk_Returntime+1'][-1]), 3))
         
         st.write("_"*45)
         st.subheader('F(x) Returns\n')
@@ -268,10 +268,10 @@ if __name__ == "__main__":
         pyplot = model.fx_chart()
         fx = model.fx()
         st.write(fx)
-        st.write('Cumulative Buy:',(fx['F(x)_CumBuyonly'][-1]),
-            'Cumulative Sell    :',(fx['F(x)_CumSellonly'][-1]),
-            'Cumulative Buy&Sell:',(fx['F(x)_CumBuySell'][-1]),
-            'Cumulative Buyhold :',(fx['F(x)_CumBuyhold'][-1]))
+        st.write('Cumulative Buy      :',round ((fx['F(x)_CumBuyonly'][-1]), 3))
+        st.write('Cumulative Sell     :',round((fx['F(x)_CumSellonly'][-1]), 3))
+        st.write('Cumulative Buy&Sell:', round((fx['F(x)_CumBuySell'][-1])), 3))
+        st.write('Cumulative Buyhold :', round((fx['F(x)_CumBuyhold'][-1])), 3))
     
     st.write("_"*45)
     st.subheader('Python coding\n')
