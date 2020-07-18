@@ -80,7 +80,7 @@ class Run_model(object) :
         plt.plot(dataset.OHLC4 , color='k' , alpha=0.20 )
         plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 )
         plt.plot(dataset.sell , 'o', color='r' , alpha=0.50)      
-        plt.show()
+        st.pyplot()
         
     def fx_chart (self):
         fx_chart = self.fx()
@@ -121,7 +121,6 @@ if __name__ == "__main__":
     model.timeframe =   st.sidebar.selectbox('timeframe',('1h' , '5m' , '15m' , '1h', '4h' ,'1d'))
     model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
     model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 17, 0, 0)))
-
     
     st.sidebar.text("_"*45)
     model.input = selectbox('rsi')
