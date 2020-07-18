@@ -57,6 +57,7 @@ class Run_model(object) :
         god_returns['Cum_Buysell'] = np.cumsum(god_returns['God_Buysell+1'])
         god_returns['Cum_Buyhold']  = np.cumsum(god_returns['Mk_Returntime+1'])
         god_returns = god_returns.iloc[: , -9:]
+        god_returns = god_returns.dropna()
         return god_returns
 
     def fx (self):
@@ -67,7 +68,6 @@ class Run_model(object) :
         except:pass
         fx = fx.iloc[: , 5:] ; fx_toaction = fx
         fx_toaction['F(x)_Action'] = np.where( fx_toaction['F(x)'].shift(1) <  fx_toaction['F(x)'].shift(0)  , 'buy' , 'sell' )
-        fx_toaction = fx_toaction.dropna()
         fx_toaction['F(x)_BuyReturn'] = np.where(fx_toaction['F(x)_Action'] == 'buy'  , fx_toaction['Mk_Returntime+1'] ,  0)
         fx_toaction['F(x)_CumBuyonly'] = np.cumsum(fx_toaction['F(x)_BuyReturn'])
         fx_toaction['F(x)_SellReturn'] = np.where(fx_toaction['F(x)_Action'] == 'sell'  , -fx_toaction['Mk_Returntime+1'] ,  0)
