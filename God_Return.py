@@ -65,7 +65,7 @@ class Run_model(object) :
         fx['Mk_Returntime+1'] = fx['Mk_Returntime+1'].shift(-1)
         try: fx['F(x)'] = fx.ta(kind =self.input , length= self.length , scalar=1 , append=False)
         except:pass
-        fx = fx.iloc[: , 5:] ; fx = fx.fillna(0)  ; fx_toaction = fx
+        fx = fx.iloc[: , 5:] ; fx_toaction = fx
         fx_toaction['F(x)_Action'] = np.where( fx_toaction['F(x)'].shift(1) <  fx_toaction['F(x)'].shift(0)  , 'buy' , 'sell' )
         fx_toaction = fx_toaction.dropna()
         fx_toaction['F(x)_BuyReturn'] = np.where(fx_toaction['F(x)_Action'] == 'buy'  , fx_toaction['Mk_Returntime+1'] ,  0)
