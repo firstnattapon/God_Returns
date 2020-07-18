@@ -130,29 +130,29 @@ if __name__ == "__main__":
     ![N|Solid](https://swobj.xingassets.com/v1/companies/public-assets/img/custom/cp/assets/logo/f/c/f/24527/square_256px/profilbild.jpg?1582285825)
     ___
     ***Input  parameter***  Sidebar
-    | Column| ความหมาย|
-    | ------ | ------ |
-    | Time   | loop_Start ถึง loop_End   
-    Data  | Markets Symbol จาก Ftx
-    TimeFrame  |  1H , 4H , 1D , 1W
-    Loop_Start  |  เริ่ม cycle   |
-    Loop_Start |  จบ cycle   |
-    Lnput F(x)  | ฟังก์ชั่นที่สนใจ |
-    Length_Param   |  Param  ฟังก์ชั่น  |
+    Column         | ความหมาย
+    ---------------| ----------------------
+    Time           |  loop_Start ถึง loop_End\n   
+    Data           |  Markets Symbol จาก Ftx\n  
+    TimeFrame      |  1H , 4H , 1D , 1W\n  
+    Loop_Start     |  เริ่ม cycle\n   
+    Loop_Start     |  จบ cycle\n        
+    Lnput F(x)     |  ฟังก์ชั่นที่สนใจ\n       
+    Length_Param   |  Param  ฟังก์ชั่น\n     
     ____
-    ***God_Returns***  Data Frame  
-    | Column| ความหมาย|
-    | ------ | ------ |
-    | Time   | loop_start ถึง loop_end      |
-    | OHLC4   | (Open + High + low + close / 4)  ตัวแทนของราคา  |
-    | Mk_Returntime + 1 | (Market Returntime time +1 ) ผลตอบแทนของวันพรุ่งนี้   |
-    | God_Buysell    | ผลตอบแทนสูงสุดของ Buy & Sell   ขอของวันพรุ่งนี้|
-    | God_Buyonly    |  ผลตอบแทนสูงสุดของ Buy  ของวันพรุ่งนี้|
-    | God_Sellonly   | ผลตอบแทนสูงสุดของ Sell   ของวันพรุ่งนี้|
-    | Cum_Godbuyonly |  Cumulative ผลตอบแทนสะสมของ Buy   |
-    | Cum_Godsellonly |  Cumulative ผลตอบแทนสะสมของ Sell |
-    | Cum_Buysell   | Cumulative ผลตอบแทนสะสมของ Buysell |
-    | Cum_Buyhold   | Cumulative  ผลตอบแทนซื้อถือยาว  |
+    ***God_Returns***  Data Frame\n    
+    Column         | ความหมาย\n  
+    ---------------| ----------------------
+    Time   | loop_start ถึง loop_end      |
+    OHLC4   | (Open + High + low + close / 4)  ตัวแทนของราคา  |
+    Mk_Returntime + 1 | (Market Returntime time +1 ) ผลตอบแทนของวันพรุ่งนี้   |
+    God_Buysell    | ผลตอบแทนสูงสุดของ Buy & Sell   ขอของวันพรุ่งนี้|
+    God_Buyonly    |  ผลตอบแทนสูงสุดของ Buy  ของวันพรุ่งนี้|
+    God_Sellonly   | ผลตอบแทนสูงสุดของ Sell   ของวันพรุ่งนี้|
+    Cum_Godbuyonly |  Cumulative ผลตอบแทนสะสมของ Buy   |
+    Cum_Godsellonly |  Cumulative ผลตอบแทนสะสมของ Sell |
+    Cum_Buysell   | Cumulative ผลตอบแทนสะสมของ Buysell |
+    Cum_Buyhold   | Cumulative  ผลตอบแทนซื้อถือยาว  |
     ____""")
 
 
