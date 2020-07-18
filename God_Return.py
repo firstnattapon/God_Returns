@@ -19,10 +19,10 @@ class Run_model(object) :
         self.loop_end   = dt.datetime(2020, 7 , 10  , 0, 0)
         self.input      = 'rsi'
         self.length     = 30
-        self.Buyonly    = (st.checkbox('Buyonly') = True)
+        self.Buyonly    = st.checkbox("Buyonly")
         self.Sellonly   = st.checkbox('Sellonly')
         self.BuySell    = st.checkbox('BuySell')
-        self.Buyhold    = st.checkbox('Buyhold')
+        self.Buyhold    = st.checkbox('Buyhold' , value = True)
 
     def dataset (self):
         self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
