@@ -219,11 +219,13 @@ if __name__ == "__main__":
             </tr>
             </tbody>
             </table><hr>
+            </div>	
             </body>
             </html>
             """, unsafe_allow_html=True)
     st.write("_"*45)
-    st.subheader('Method\n')
+    
+    st.subheader('Method Isolate\n')
     model =  Run_model()
     st.sidebar.header('....header..... \n')
     selectbox = lambda y : st.sidebar.selectbox('input F(x)',
@@ -350,6 +352,3 @@ if __name__ == "__main__":
 #     st.write(pyplot.iloc[: , :])
 # st.text("")
 # st.write('\n\nhttps://github.com/firstnattapon/test-stream/edit/master/app.py')
-
-
-
