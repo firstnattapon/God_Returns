@@ -262,7 +262,7 @@ if __name__ == "__main__":
         pyplot = model.fx_chart()
         fx = model.fx()
         st.write(fx)
-        st.write(fx._CumBuyonly[-1])
+        st.write(fx.F(x)_CumBuyonly[-1])
      
 #     fx_toaction['F(x)_CumBuyonly'] = np.cumsum(fx_toaction['F(x)_BuyReturn'])
 #     fx_toaction['F(x)_SellReturn'] = np.where(fx_toaction['F(x)_Action'] == 'sell'  , -fx_toaction['Mk_Returntime+1'] ,  0)
