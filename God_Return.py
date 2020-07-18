@@ -20,7 +20,7 @@ class Run_model(object) :
         self.input  = 'rsi'
         self.length = 30
 
-   @st.cache
+    @st.cache
     def dataset (self):
         self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
         ohlcv = self.exchange.fetch_ohlcv(self.pair_data, self.timeframe  , limit=5000)
