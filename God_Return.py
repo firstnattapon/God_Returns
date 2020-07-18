@@ -20,7 +20,6 @@ class Run_model(object) :
         self.input  = 'rsi'
         self.length = 30
 
-    @st.cache
     def dataset (self):
         self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
         ohlcv = self.exchange.fetch_ohlcv(self.pair_data, self.timeframe  , limit=5000)
@@ -118,7 +117,7 @@ if __name__ == "__main__":
     model.pair_data =   st.sidebar.text_input('data' , "BTC-PERP")
     model.timeframe =   st.sidebar.selectbox('timeframe',('1h' , '5m' , '15m' , '1h', '4h' ,'1d'))
     model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
-    model.loop_end =    np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 17, 0, 0)))
+    model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 17, 0, 0)))
 
     st.sidebar.text("_"*45)
     model.input = selectbox('rsi')
