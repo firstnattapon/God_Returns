@@ -250,7 +250,6 @@ if __name__ == "__main__":
     
     model.input = selectbox('rsi')
     model.length = st.sidebar.slider('length_parameter' , 1 , 30 , 15)
-  
     st.write("_"*45)
     st.subheader('Details\n')
     if st.checkbox('Details', value = True):
@@ -261,10 +260,18 @@ if __name__ == "__main__":
         st.subheader('F(x) Returns\n')
         pyplot = model.fx_scatter()
         pyplot = model.fx_chart()
-        st.write(model.fx())
+        fx = model.fx()
+        st.write(fx)
+        st.write(fx._CumBuyonly[-1])
      
-    st.write("_"*45)
+#     fx_toaction['F(x)_CumBuyonly'] = np.cumsum(fx_toaction['F(x)_BuyReturn'])
+#     fx_toaction['F(x)_SellReturn'] = np.where(fx_toaction['F(x)_Action'] == 'sell'  , -fx_toaction['Mk_Returntime+1'] ,  0)
+#     fx_toaction['F(x)_CumSellonly'] = np.cumsum(fx_toaction['F(x)_SellReturn'])
+#     fx_toaction['F(x)_BuySellReturn'] = np.where( fx_toaction['F(x)_Action'] == 'buy' , fx_toaction['Mk_Returntime+1'] , -fx_toaction['Mk_Returntime+1'])
+#     fx_toaction['F(x)_CumBuySell'] = np.cumsum(fx_toaction['F(x)_BuySellReturn'])
+#     fx_toaction['F(x)_CumBuyhold']  = np.cumsum(fx_toaction['Mk_Returntime+1'])
     
+    st.write("_"*45)
     st.subheader('Python coding\n')
     if st.checkbox('python coding', value = 0 ):
 
