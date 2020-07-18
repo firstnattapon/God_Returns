@@ -128,20 +128,16 @@ if __name__ == "__main__":
     st.markdown("""\n
         <!DOCTYPE html>
         <html>
-
         <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Welcome file</title>
           <link rel="stylesheet" href="https://stackedit.io/style.css" />
         </head>
-
         <body class="stackedit">
           <div class="stackedit__html"><h1 id="god_returns">God_Returns</h1>
-        <p><img src="https://swobj.xingassets.com/v1/companies/public-assets/img/custom/cp/assets/logo/f/c/f/24527/square_256px/profilbild.jpg?1582285825" alt="N|Solid"></p>
-        <hr>
-        <p><em><strong>Input  parameter</strong></em>  Sidebar</p>
-
+        <p><img src="https://swobj.xingassets.com/v1/companies/public-assets/img/custom/cp/assets/logo/f/c/f/24527/square_256px/profilbild.jpg?1582285825" alt="N|Solid"></p><hr>
+        <p><em><strong>God_Returns</strong></em>  Data Frame</p>
         <table>
         <thead>
         <tr>
@@ -181,7 +177,6 @@ if __name__ == "__main__":
         </tbody>
         </table><hr>
         <p><em><strong>God_Returns</strong></em>  Data Frame</p>
-
         <table>
         <thead>
         <tr>
@@ -234,7 +229,6 @@ if __name__ == "__main__":
         </table><hr>
         </div>
         </body>
-
         </html>
         """, unsafe_allow_html=True)
 
@@ -255,7 +249,6 @@ if __name__ == "__main__":
             'stdev','stoch','swma','t3','tema','trima','true_range','uo','variance',
             'vortex','vp','vwap','vwma','willr','wma','zlma','zscore'))
     
-    st.sidebar.text("_"*45)
     model.pair_data =   st.sidebar.text_input('data' , "BTC-PERP")
     model.timeframe =   st.sidebar.selectbox('timeframe',('1h' , '5m' , '15m' , '1h', '4h' ,'1d'))
     model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
