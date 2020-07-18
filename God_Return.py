@@ -222,7 +222,7 @@ if __name__ == "__main__":
             </body>
             </html>
             """, unsafe_allow_html=True)
-
+    st.write("_"*45)
     st.subheader('Method\n')
     model =  Run_model()
     st.sidebar.header('....header..... \n')
@@ -256,6 +256,21 @@ if __name__ == "__main__":
         pyplot = model.fx_scatter()
         pyplot = model.fx_chart()
         st.write(model.fx())
+     
+    st.write("_"*45)
+    
+    
+    code ="""/n
+    
+   
+   
+   
+   
+   
+   
+   
+"""
+    st.sidebar.code(code, language='python')
 
 # # st.sidebar.text("_"*45)
 # pyplot = model.chart
