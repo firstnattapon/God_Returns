@@ -19,6 +19,12 @@ class Run_model(object) :
         self.loop_end = dt.datetime(2020, 7 , 10  , 0, 0)
         self.input  = 'rsi'
         self.length = 30
+        
+    def st (self):
+        self.Buyonly     = st.checkbox('Buyonly')
+        self.Sellonly    = st.checkbox('Sellonly')
+        self.BuySell     = st.checkbox('BuySell')
+        self.CumBuyhold  = st.checkbox('CumBuyhold')
 
     def dataset (self):
         self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
@@ -84,25 +90,29 @@ class Run_model(object) :
         
     def fx_chart (self):
         fx_chart = self.fx()
-        plt.figure(figsize=(12,8))
+        plt.figure(figsize=(8,5))
 
-        if st.checkbox('Buyonly'):
+        if self.Buyonly :
             plt.plot(fx_chart['F(x)_CumBuyonly'], color='k',  alpha=0.60 )
-        if st.checkbox('Sellonly'):
+        if self.Sellonly :
             plt.plot(fx_chart['F(x)_CumSellonly'], color='g',  alpha=0.60 )
-        if st.checkbox('BuySell'):    
+        if self.BuySell :    
             plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 )
-        if st.checkbox('CumBuyhold'):    
+        if self.Buyhold :    
             plt.plot(fx_chart['F(x)_CumBuyhold'], color='r',  alpha=0.60 )
         st.pyplot()
 
     def god_chart (self):
         god_chart = self.god_returns()
-        plt.figure(figsize=(12,8))
-        plt.plot(god_chart['Cum_Godbuyonly'], color='k',  alpha=0.60 )
-        plt.plot(god_chart['Cum_Godsellonly'], color='g',  alpha=0.60 )
-        plt.plot(god_chart['Cum_Buysell'], color='r',  alpha=0.60 )
-        plt.plot(god_chart['Cum_Buyhold'], color='r',  alpha=0.60 )
+        plt.figure(figsize=(8,5))
+        if self.Buyonly :
+            plt.plot(god_chart['Cum_Godbuyonly'], color='k',  alpha=0.60 )
+        if self.Sellonly : 
+            plt.plot(god_chart['Cum_Godsellonly'], color='g',  alpha=0.60 )
+        if self.Sellonly :
+            plt.plot(god_chart['Cum_Buysell'], color='r',  alpha=0.60 )
+        if self.Sellonly : 
+            plt.plot(god_chart['Cum_Buyhold'], color='r',  alpha=0.60 )
         st.pyplot()
 
 #____________________________________________________________________________  
