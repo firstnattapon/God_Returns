@@ -84,6 +84,7 @@ class Run_model(object) :
         plt.plot(dataset.OHLC4 , color='k' , alpha=0.20)
         plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 ,  label= 'fxtoaction = buy')
         plt.plot(dataset.sell , 'o', color='r' , alpha=0.50 ,  label= 'fxtoaction = sell')
+        plt.legend(fontsize=12)
         plt.xlabel('price',fontsize=14)
         plt.ylabel('%',fontsize=14)
         st.pyplot()
@@ -218,7 +219,6 @@ if __name__ == "__main__":
             </tr>
             </tbody>
             </table><hr>
-            </div>
             </body>
             </html>
             """, unsafe_allow_html=True)
@@ -259,8 +259,8 @@ if __name__ == "__main__":
      
     st.write("_"*45)
     
-    st.subheader('python coding\n')
-    if st.checkbox('python coding', value = True):
+    st.subheader('Python coding\n')
+    if st.checkbox('python coding', value = 0 ):
 
         code = """\n
     class Run_god(object) :
