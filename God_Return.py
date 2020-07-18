@@ -103,7 +103,7 @@ class Run_model(object) :
 if __name__ == "__main__":
     model =  Run_model()
     st.sidebar.header('....header..... \n')
-    selectbox = lambda y : st.sidebar.selectbox('input',
+    selectbox = lambda y : st.sidebar.selectbox('input F(x)',
             ( y ,'accbands','ad','adx','ao','aroon','atr','bbands',
             'bop','cci','cg','cmf','cmo','coppock','cross','decreasing','dema',
             'donchian','dpo','efi','ema','eom','fwma','hl2','hlc3','hma','ichimoku',
@@ -121,11 +121,17 @@ if __name__ == "__main__":
     model.loop_end =    np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 17, 0, 0)))
 
     st.sidebar.text("_"*45)
-    model.input = selectbox('obv')
-    st.sidebar.text("_"*45)
-    model.length = st.sidebar.slider('length_parameter' , 1 , 500 , 489)
+    model.input = selectbox('rsi')
+    model.length = st.sidebar.slider('length_parameter' , 1 , 500 , 30)
     st.sidebar.text("_"*45)
     
+    st.write(model.god_returns())
+    st.write(model.fx())
+    
+    pyplot = model.fx_scatter
+    pyplot = model.fx_chart
+    pyplot = model.god_chart
+
 # # st.sidebar.text("_"*45)
 # pyplot = model.chart
 # pyplot = model.nav
