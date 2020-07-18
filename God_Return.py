@@ -106,9 +106,9 @@ class Run_model(object) :
             plt.plot(god_chart['Cum_Godbuyonly'], color='k',  alpha=0.60 )
         if self.Sellonly : 
             plt.plot(god_chart['Cum_Godsellonly'], color='g',  alpha=0.60 )
-        if self.Sellonly :
+        if self.BuySell :
             plt.plot(god_chart['Cum_Buysell'], color='r',  alpha=0.60 )
-        if self.Sellonly : 
+        if self.Buyhold : 
             plt.plot(god_chart['Cum_Buyhold'], color='r',  alpha=0.60 )
         st.pyplot()
 
