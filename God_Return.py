@@ -85,10 +85,15 @@ class Run_model(object) :
     def fx_chart (self):
         fx_chart = self.fx()
         plt.figure(figsize=(12,8))
-        plt.plot(fx_chart['F(x)_CumBuyonly'], color='k',  alpha=0.60 )
-        plt.plot(fx_chart['F(x)_CumSellonly'], color='g',  alpha=0.60 )
-        plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 )
-        plt.plot(fx_chart['F(x)_CumBuyhold'], color='r',  alpha=0.60 )
+
+        if st.checkbox('Buyonly'):
+            plt.plot(fx_chart['F(x)_CumBuyonly'], color='k',  alpha=0.60 )
+        if st.checkbox('Sellonly'):
+            plt.plot(fx_chart['F(x)_CumSellonly'], color='g',  alpha=0.60 )
+        if st.checkbox('BuySell'):    
+            plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 )
+        if st.checkbox('CumBuyhold'):    
+            plt.plot(fx_chart['F(x)_CumBuyhold'], color='r',  alpha=0.60 )
         st.pyplot()
 
     def god_chart (self):
@@ -133,6 +138,7 @@ if __name__ == "__main__":
     pyplot = model.fx_scatter()
     pyplot = model.fx_chart()
     st.write(model.fx())
+    st.sidebar.text("_"*45)
     
 # # st.sidebar.text("_"*45)
 # pyplot = model.chart
