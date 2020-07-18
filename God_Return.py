@@ -50,7 +50,7 @@ class Run_model(object) :
         god_returns['God_Buysell'] = np.where( True ,  abs(god_returns['Mk_Returntime+1'])  ,  abs(god_returns['Mk_Returntime+1'])  )
         god_returns['Cum_Godbuyonly'] = np.cumsum(god_returns['God_Buyonly'])
         god_returns['Cum_Godsellonly'] = np.cumsum(god_returns['God_Sellonly'])
-        god_returns['Cum_Buysell'] = np.cumsum(god_returns['God_Buyonly'])
+        god_returns['Cum_Buysell'] = np.cumsum(god_returns['God_Buysell'])
         god_returns['Cum_Buyhold']  = np.cumsum(god_returns['Mk_Returntime+1'])
         god_returns = god_returns.iloc[: , -9:]
         return god_returns
@@ -87,6 +87,7 @@ class Run_model(object) :
         plt.plot(fx_chart['F(x)_CumBuyonly'], color='k',  alpha=0.60 )
         plt.plot(fx_chart['F(x)_CumSellonly'], color='g',  alpha=0.60 )
         plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 )
+        plt.plot(fx_chart['F(x)Cum_Buyhold'], color='r',  alpha=0.60 )
         st.pyplot()
 
     def god_chart (self):
@@ -120,10 +121,9 @@ if __name__ == "__main__":
     model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 17, 0, 0)))
 
     
-    
     st.sidebar.text("_"*45)
     model.input = selectbox('rsi')
-    model.length = st.sidebar.slider('length_parameter' , 1 , 500 , 30)
+    model.length = st.sidebar.slider('length_parameter' , 1 , 60 , 30)
     st.sidebar.text("_"*45)
     
     pyplot = model.god_chart()
@@ -133,7 +133,6 @@ if __name__ == "__main__":
     pyplot = model.fx_chart()
     st.write(model.fx())
     
-
 # # st.sidebar.text("_"*45)
 # pyplot = model.chart
 # pyplot = model.nav
