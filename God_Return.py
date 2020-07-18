@@ -257,10 +257,13 @@ if __name__ == "__main__":
         pyplot = model.god_chart()
         god = model.god_returns()
         st.write(god)
-        st.write('Cumulative GodmaxBuy  :',round ((god['Cum_Godbuyonly][-1]), 3)*100 )
-        st.write('Cumulative GodmaxSell :',round ((god['Cum_Godsellonly'][-1]), 3)*100)
-        st.write('Cumulative GodBuy&Sell:',round ((god['Cum_Buysell'][-1]), 3)*100)
-        st.write('Cumulative Buyhold    :',round ((god['Cum_Buyhold'][-1]), 3)*100 )
+        st.write('Cumulative GodmaxBuy  :',round ((god['Cum_Godbuyonly][-1]),3)*100 , '%',
+                 ('Cumulative GodmaxSell :',round ((god['Cum_Godsellonly'][-1]),3)*100, '%' ))
+#         st.write('Cumulative GodmaxSell :',round ((god['Cum_Godsellonly'][-1]),3)*100, '%' ))
+        st.write('Cumulative GodBuy&Sell:',round ((god['Cum_Buysell'][-1]), 3)*100, '%',
+                 ('Cumulative Buyhold    :',round ((god['Cum_Buyhold'][-1]), 3)*100, '%' )
+                 
+#         st.write('Cumulative Buyhold    :',round ((god['Cum_Buyhold'][-1]), 3)*100, '%' )
      
                 st.write("_"*45)
         st.subheader('F(x) Returns\n')
@@ -268,10 +271,14 @@ if __name__ == "__main__":
         pyplot = model.fx_chart()
         fx = model.fx()
         st.write(fx)
-        st.write('Cumulative Buy     :' ,round ((fx['F(x)_CumBuyonly'][-1]), 3))
-        st.write('Cumulative Sell    :' ,round((fx['F(x)_CumSellonly'][-1]), 3))
-        st.write('Cumulative Buy&Sell:' , round((fx['F(x)_CumBuySell'][-1]), 3))
-        st.write('Cumulative Buyhold :' , round((fx['F(x)_CumBuyhold'][-1]), 3))
+        st.write('Cumulative Buy     :' ,round ((fx['F(x)_CumBuyonly'][-1]), 3)*100 , '%',
+                 ('Cumulative Sell    :' ,round((fx['F(x)_CumSellonly'][-1]), 3)*100, '%' ))
+                                                       
+#         st.write('Cumulative Sell    :' ,round((fx['F(x)_CumSellonly'][-1]), 3)*100, '%' )
+        st.write('Cumulative Buy&Sell:' , round((fx['F(x)_CumBuySell'][-1]), 3)*100, '%',
+                ('Cumulative Buyhold :' , round((fx['F(x)_CumBuyhold'][-1]), 3)*100, '%' )
+                )
+#         st.write('Cumulative Buyhold :' , round((fx['F(x)_CumBuyhold'][-1]), 3)*100, '%' )
     
     st.write("_"*45)
     st.subheader('Python coding\n')
