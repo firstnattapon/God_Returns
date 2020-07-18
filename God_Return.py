@@ -100,9 +100,9 @@ class Run_model(object) :
 
 if __name__ == "__main__":
     model =  Run_model()
-    # st.sidebar.header('(2020, 7 , 4) \n')
-    selectbox = lambda x, y : st.sidebar.selectbox('input_{}'.format(x),
-        ( y ,'accbands','ad','adx','ao','aroon','atr','bbands',
+    st.sidebar.header('....header..... \n')
+    selectbox = lambda y : st.sidebar.selectbox('input',
+            ( y ,'accbands','ad','adx','ao','aroon','atr','bbands',
             'bop','cci','cg','cmf','cmo','coppock','cross','decreasing','dema',
             'donchian','dpo','efi','ema','eom','fwma','hl2','hlc3','hma','ichimoku',
             'increasing','kc','kst','kurtosis','linear_decay','linreg','log_return',
@@ -110,21 +110,18 @@ if __name__ == "__main__":
             'nvi','obv','ohlc4','percent_return','pvi','pvol','pvt','pwma','qstick',
             'quantile','rma','roc','rsi','rvi','short_run','sinwma','skew','slope','sma',
             'stdev','stoch','swma','t3','tema','trima','true_range','uo','variance',
-            'vortex','vp','vwap','vwma','willr','wma','zlma','zscore' ,'jv','seed','nextprime'))
+            'vortex','vp','vwap','vwma','willr','wma','zlma','zscore'))
 
+    st.sidebar.text("_"*45)
+    model.input = selectbox('obv')
+    st.sidebar.text("_"*45)
+    model.length = st.sidebar.slider('length_1' , 1 , 500 , 489)
+    st.sidebar.text("_"*45)
     
-# st.sidebar.text("_"*45)
-# model.input_1 = selectbox(1 ,'obv')
-
-# st.sidebar.text("_"*45)
-# model.length_1 = st.sidebar.slider('length_1' , 1 , 500 , 489)
-
-# st.sidebar.text("_"*45)
-
-# st.sidebar.text("_"*45)
-# model.pair_data = st.sidebar.text_input('data' , "TOMO-PERP")
-# model.timeframe = st.sidebar.selectbox('timeframe',('1h' , '5m' , '15m' , '1h', '4h' ,'1d'))
-# model.start_test =  np.datetime64(st.sidebar.date_input('start_test', value= dt.datetime(2020, 7, 4, 0, 0)))
+    st.sidebar.text("_"*45)
+    model.pair_data = st.sidebar.text_input('data' , "TOMO-PERP")
+    model.timeframe = st.sidebar.selectbox('timeframe',('1h' , '5m' , '15m' , '1h', '4h' ,'1d'))
+#     model.start_test =  np.datetime64(st.sidebar.date_input('start_test', value= dt.datetime(2020, 7, 4, 0, 0)))
 
 # # st.sidebar.text("_"*45)
 # pyplot = model.chart
