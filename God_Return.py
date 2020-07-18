@@ -22,7 +22,7 @@ class Run_model(object) :
         self.Buyonly    = st.checkbox('Buyonly')
         self.Sellonly   = st.checkbox('Sellonly')
         self.BuySell    = st.checkbox('BuySell')
-        self.CumBuyhold = st.checkbox('CumBuyhold')
+        self.Buyhold    = st.checkbox('Buyhold')
 
     def dataset (self):
         self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
