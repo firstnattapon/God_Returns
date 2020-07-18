@@ -94,19 +94,21 @@ class Run_model(object) :
     def fx_chart (self):
         fx_chart = self.fx()
         plt.figure(figsize=(12,8))
-        plt.plot(fx_chart['F(x)_CumBuyonly'], color='g',  alpha=0.60 )
-        plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.60 )
-        plt.plot(fx_chart['F(x)_CumBuySell'], color='k',  alpha=0.60 )
-        plt.plot(fx_chart['F(x)_CumBuyhold'], color='m',  alpha=0.60 )
+        plt.plot(fx_chart['F(x)_CumBuyonly'], color='g',  alpha=0.60 , label= 'F(x)_CumBuy' )
+        plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.60 ,label= 'F(x)_CumSell' )
+        plt.plot(fx_chart['F(x)_CumBuySell'], color='k',  alpha=0.60 , label= 'F(x)_CumSell' )
+        plt.plot(fx_chart['F(x)_CumBuyhold'], color='m',  alpha=0.60 , label= 'F(x)_CumBuyhold')
+        plt.legend(fontsize=12)
         st.pyplot()
 
     def god_chart (self):
         god_chart = self.god_returns()
         plt.figure(figsize=(12,8))
-        plt.plot(god_chart['Cum_Godbuyonly'], color='g',  alpha=0.60 )
-        plt.plot(god_chart['Cum_Godsellonly'], color='r',  alpha=0.60 )
-        plt.plot(god_chart['Cum_Buysell'], color='k',  alpha=0.60 )
-        plt.plot(god_chart['Cum_Buyhold'], color='m',  alpha=0.60 )
+        plt.plot(god_chart['Cum_Godbuyonly'], color='g',  alpha=0.60  , label= 'Cum_Godbuy' )
+        plt.plot(god_chart['Cum_Godsellonly'], color='r',  alpha=0.60  , label= 'Cum_Godsell' )
+        plt.plot(god_chart['Cum_Buysell'], color='k',  alpha=0.60  , label= 'Cum_Buysell' )
+        plt.plot(god_chart['Cum_Buyhold'], color='m',  alpha=0.60  , label= 'Cum_Buyhold' )
+        plt.legend(fontsize=12)
         st.pyplot()
 
 #____________________________________________________________________________  
