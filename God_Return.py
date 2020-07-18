@@ -96,8 +96,8 @@ class Run_model(object) :
         plt.figure(figsize=(12,8))
         plt.plot(fx_chart['F(x)_CumBuyonly'], color='g',  alpha=0.60 , label= 'F(x)_CumBuy' )
         plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.60 ,label= 'F(x)_CumSell' )
-        plt.plot(fx_chart['F(x)_CumBuySell'], color='k',  alpha=0.60 , label= 'F(x)_CumBuy&Sell' )
-        plt.plot(fx_chart['F(x)_CumBuyhold'], color='b',  alpha=0.60 , label= 'F(x)_CumBuyhold')
+        plt.plot(fx_chart['F(x)_CumBuySell'], color='b',  alpha=0.60 , label= 'F(x)_CumBuy&Sell' )
+        plt.plot(fx_chart['F(x)_CumBuyhold'], color='k',  alpha=0.60 , label= 'F(x)_CumBuyhold')
         plt.axhline(y=0.0, color='k', linestyle='-.')
         plt.legend(fontsize=12)
         plt.xlabel('cycle',fontsize=14)
@@ -109,8 +109,8 @@ class Run_model(object) :
         plt.figure(figsize=(12,8))
         plt.plot(god_chart['Cum_Godbuyonly'], color='g',  alpha=0.60  , label= 'Cum_Godmaxbuy' )
         plt.plot(god_chart['Cum_Godsellonly'], color='r',  alpha=0.60  , label= 'Cum_Godmaxsell' )
-        plt.plot(god_chart['Cum_Buysell'], color='k',  alpha=0.60  , label= 'Cum_GodmaxBuy&sell' )
-        plt.plot(god_chart['Cum_Buyhold'], color='b',  alpha=0.60  , label= 'Cum_Buyhold' )
+        plt.plot(god_chart['Cum_Buysell'], color='b',  alpha=0.60  , label= 'Cum_GodmaxBuy&sell' )
+        plt.plot(god_chart['Cum_Buyhold'], color='k',  alpha=0.60  , label= 'Cum_Buyhold' )
         plt.axhline(y=0.0, color='k', linestyle='-.')
         plt.legend(fontsize=12)
         plt.xlabel('cycle',fontsize=14)
@@ -231,7 +231,7 @@ if __name__ == "__main__":
     
     st.subheader('Method Isolate\n')
     model =  Run_model()
-    st.sidebar.header('....header..... \n')
+    st.sidebar.header('Input Parameter\n')
     selectbox = lambda y : st.sidebar.selectbox('input F(x)',
             ( y ,'accbands','ad','adx','ao','aroon','atr','bbands',
             'bop','cci','cg','cmf','cmo','coppock','cross','decreasing','dema',
