@@ -261,8 +261,8 @@ if __name__ == "__main__":
         st.write('Cumulative GodmaxSell :',round (god['Cum_Godsellonly'][-1],3) *100, '%' )     
         st.write('Cumulative GodBuy&Sell:',round (god['Cum_Buysell'][-1],3) *100, '%' )       
         st.write('Cumulative Buyhold    :',round (god['Cum_Buyhold'][-1],3) *100, '%' )       
-     
-                st.write("_"*45)
+        st.write("_"*45)
+        
         st.subheader('F(x) Returns\n')
         pyplot = model.fx_scatter()
         pyplot = model.fx_chart()
