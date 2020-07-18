@@ -264,7 +264,7 @@ if __name__ == "__main__":
         st.write(fx)
         st.write('Cumulative Buy : {:.3f}'.format(fx['F(x)_CumBuyonly'][-1]),
             'Cumulative Sell : {:.3f}'.format(fx['F(x)_CumSellonly'][-1]),
-            'Cumulative Buy&Sell : {:.3f}'.format(fx['F(x)_CumBuySellonly'][-1]),
+            'Cumulative Buy&Sell : {:.3f}'.format(fx['F(x)_CumBuySell'][-1]),
             'Cumulative Buyhold : {:.3f}'.format(fx['F(x)_CumBuyBuyhold'][-1]))
      
 #     fx_toaction['F(x)_CumBuyonly'] = np.cumsum(fx_toaction['F(x)_BuyReturn'])
