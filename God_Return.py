@@ -10,7 +10,6 @@ from scipy import special as s
 pd.set_option("display.precision", 6)
 # sns.set_style("whitegrid")
 
-
 class Run_model(object) :
     def __init__(self ):
         self.pair_data = "BTC-PERP"
