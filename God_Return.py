@@ -113,114 +113,112 @@ class Run_model(object) :
 
 if __name__ == "__main__":
     st.subheader('information\n')
-    st.checkbox('information')
-    st.markdown("""\n
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Welcome file</title>
-          <link rel="stylesheet" href="https://stackedit.io/style.css" />
-        </head>
-        <body class="stackedit">
-        <p><img src="https://img.soccersuck.com/images/2020/07/18/profilbild-removebg-preview11e027b125057deb6666.png" alt="N|Solid"></p><hr>
-        <p><em><strong>God_Returns</strong></em>  Data Frame</p>
-        <table>
-        <thead>
-        <tr>
-        <th>Column</th>
-        <th>ความหมาย</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td>Time</td>
-        <td>loop_Start ถึง loop_End</td>
-        </tr>
-        <tr>
-        <td>Data</td>
-        <td>Markets Symbol จาก Ftx</td>
-        </tr>
-        <tr>
-        <td>TimeFrame</td>
-        <td>1H , 4H , 1D , 1W</td>
-        </tr>
-        <tr>
-        <td>Loop_Start</td>
-        <td>เริ่ม cycle</td>
-        </tr>
-        <tr>
-        <td>Loop_End</td>
-        <td>จบ cycle</td>
-        </tr>
-        <tr>
-        <td>Input F(x)</td>
-        <td>ฟังก์ชั่นที่สนใจ</td>
-        </tr>
-        <tr>
-        <td>Length_Param</td>
-        <td>Param  ฟังก์ชั่น</td>
-        </tr>
-        </tbody>
-        </table><hr>
-        <p><em><strong>God_Returns</strong></em>  Data Frame</p>
-        <table>
-        <thead>
-        <tr>
-        <th>Column</th>
-        <th>ความหมาย</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td>Time</td>
-        <td>loop_start ถึง loop_end</td>
-        </tr>
-        <tr>
-        <td>OHLC4</td>
-        <td>(Open + High + low + close / 4)  ตัวแทนของราคา</td>
-        </tr>
-        <tr>
-        <td>Mk_Returntime + 1</td>
-        <td>(Market Returntime time +1 ) ผลตอบแทนของวันพรุ่งนี้</td>
-        </tr>
-        <tr>
-        <td>God_Buysell + 1</td>
-        <td>ผลตอบแทนสูงสุดของ Buy &amp; Sell   ขอของวันพรุ่งนี้</td>
-        </tr>
-        <tr>
-        <td>God_Buyonly + 1</td>
-        <td>ผลตอบแทนสูงสุดของ Buy  ของวันพรุ่งนี้</td>
-        </tr>
-        <tr>
-        <td>God_Sellonly + 1</td>
-        <td>ผลตอบแทนสูงสุดของ Sell   ของวันพรุ่งนี้</td>
-        </tr>
-        <tr>
-        <td>Cum_Godbuyonly</td>
-        <td>Cumulative ผลตอบแทนสะสมของ Buy</td>
-        </tr>
-        <tr>
-        <td>Cum_Godsellonly</td>
-        <td>Cumulative ผลตอบแทนสะสมของ Sell</td>
-        </tr>
-        <tr>
-        <td>Cum_Buysell</td>
-        <td>Cumulative ผลตอบแทนสะสมของ Buysell</td>
-        </tr>
-        <tr>
-        <td>Cum_Buyhold</td>
-        <td>Cumulative  ผลตอบแทนซื้อถือยาว</td>
-        </tr>
-        </tbody>
-        </table><hr>
-        </div>
-        </body>
-        </html>
-        """, unsafe_allow_html=True)
-
-
+    if st.checkbox('information'):
+        st.markdown("""\n
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Welcome file</title>
+              <link rel="stylesheet" href="https://stackedit.io/style.css" />
+            </head>
+            <body class="stackedit">
+            <p><img src="https://img.soccersuck.com/images/2020/07/18/profilbild-removebg-preview11e027b125057deb6666.png" alt="N|Solid"></p><hr>
+            <p><em><strong>God_Returns</strong></em>  Data Frame</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Column</th>
+            <th>ความหมาย</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>Time</td>
+            <td>loop_Start ถึง loop_End</td>
+            </tr>
+            <tr>
+            <td>Data</td>
+            <td>Markets Symbol จาก Ftx</td>
+            </tr>
+            <tr>
+            <td>TimeFrame</td>
+            <td>1H , 4H , 1D , 1W</td>
+            </tr>
+            <tr>
+            <td>Loop_Start</td>
+            <td>เริ่ม cycle</td>
+            </tr>
+            <tr>
+            <td>Loop_End</td>
+            <td>จบ cycle</td>
+            </tr>
+            <tr>
+            <td>Input F(x)</td>
+            <td>ฟังก์ชั่นที่สนใจ</td>
+            </tr>
+            <tr>
+            <td>Length_Param</td>
+            <td>Param  ฟังก์ชั่น</td>
+            </tr>
+            </tbody>
+            </table><hr>
+            <p><em><strong>God_Returns</strong></em>  Data Frame</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Column</th>
+            <th>ความหมาย</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>Time</td>
+            <td>loop_start ถึง loop_end</td>
+            </tr>
+            <tr>
+            <td>OHLC4</td>
+            <td>(Open + High + low + close / 4)  ตัวแทนของราคา</td>
+            </tr>
+            <tr>
+            <td>Mk_Returntime + 1</td>
+            <td>(Market Returntime time +1 ) ผลตอบแทนของวันพรุ่งนี้</td>
+            </tr>
+            <tr>
+            <td>God_Buysell + 1</td>
+            <td>ผลตอบแทนสูงสุดของ Buy &amp; Sell   ขอของวันพรุ่งนี้</td>
+            </tr>
+            <tr>
+            <td>God_Buyonly + 1</td>
+            <td>ผลตอบแทนสูงสุดของ Buy  ของวันพรุ่งนี้</td>
+            </tr>
+            <tr>
+            <td>God_Sellonly + 1</td>
+            <td>ผลตอบแทนสูงสุดของ Sell   ของวันพรุ่งนี้</td>
+            </tr>
+            <tr>
+            <td>Cum_Godbuyonly</td>
+            <td>Cumulative ผลตอบแทนสะสมของ Buy</td>
+            </tr>
+            <tr>
+            <td>Cum_Godsellonly</td>
+            <td>Cumulative ผลตอบแทนสะสมของ Sell</td>
+            </tr>
+            <tr>
+            <td>Cum_Buysell</td>
+            <td>Cumulative ผลตอบแทนสะสมของ Buysell</td>
+            </tr>
+            <tr>
+            <td>Cum_Buyhold</td>
+            <td>Cumulative  ผลตอบแทนซื้อถือยาว</td>
+            </tr>
+            </tbody>
+            </table><hr>
+            </div>
+            </body>
+            </html>
+            """, unsafe_allow_html=True)
 
     st.subheader('Method\n')
     model =  Run_model()
