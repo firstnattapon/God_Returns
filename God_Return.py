@@ -81,14 +81,11 @@ class Run_model(object) :
         dataset['buy'] = dataset.apply(lambda x : np.where(x['F(x)_Action'] == 'buy' , x.OHLC4 , None) , axis=1)
         dataset['sell'] =  dataset.apply(lambda x : np.where(x['F(x)_Action'] == 'sell'  , x.OHLC4 , None) , axis=1)
         plt.figure(figsize=(12,8))
-        plt.plot(dataset.OHLC4 , color='k' , alpha=0.10 )
-        plt.plot(dataset.buy , 'o',  color='g' , alpha=0.30 )
-        plt.plot(dataset.sell , 'o', color='r' , alpha=0.30)    
-        plt.plot(dataset.OHLC4 , color='k' , alpha=0.10 )
-        plt.plot(dataset.buy , 'o',  color='g' , alpha=0.30 )
-        plt.plot(dataset.OHLC4 , color='k' , alpha=0.10 )
-        plt.plot(dataset.sell , 'o', color='r' , alpha=0.30)    
-        plt.plot(dataset.OHLC4 , color='k' , alpha=0.10 )
+        plt.plot(dataset.OHLC4 , color='k' , alpha=0.20)
+        plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50
+        plt.plot(dataset.sell , 'o', color='r' , alpha=0.50   
+        plt.xlabel('price',fontsize=14)
+        plt.ylabel('%',fontsize=14)
         st.pyplot()
         
     def fx_chart (self):
@@ -99,6 +96,8 @@ class Run_model(object) :
         plt.plot(fx_chart['F(x)_CumBuySell'], color='k',  alpha=0.60 , label= 'F(x)_CumSell' )
         plt.plot(fx_chart['F(x)_CumBuyhold'], color='m',  alpha=0.60 , label= 'F(x)_CumBuyhold')
         plt.legend(fontsize=12)
+        plt.xlabel('cycle',fontsize=14)
+        plt.ylabel('%',fontsize=14)
         st.pyplot()
 
     def god_chart (self):
@@ -109,12 +108,14 @@ class Run_model(object) :
         plt.plot(god_chart['Cum_Buysell'], color='k',  alpha=0.60  , label= 'Cum_Buysell' )
         plt.plot(god_chart['Cum_Buyhold'], color='m',  alpha=0.60  , label= 'Cum_Buyhold' )
         plt.legend(fontsize=12)
+        plt.xlabel('cycle',fontsize=14)
+        plt.ylabel('%',fontsize=14)
         st.pyplot()
-
+        
 #____________________________________________________________________________  
 
 if __name__ == "__main__":
-    st.subheader('information\n')
+    st.subheader('Information\n')
     if st.checkbox('information'):
         st.markdown("""\n
             <!DOCTYPE html>
@@ -245,16 +246,18 @@ if __name__ == "__main__":
     model.length = st.sidebar.slider('length_parameter' , 1 , 60 , 30)
   
     st.write("_"*45)
-    st.subheader('God Returns\n')
-    pyplot = model.god_chart()
-    st.write(model.god_returns())
-    st.write("_"*45)
-    
-    st.subheader('F(x) Returns\n')
-    pyplot = model.fx_scatter()
-    pyplot = model.fx_chart()
-    st.write(model.fx())
-    
+    st.subheader('Details\n')
+    if st.checkbox('information', value = True)
+        st.subheader('God Returns\n')
+        pyplot = model.god_chart()
+        st.write(model.god_returns())
+        st.write("_"*45)
+
+        st.subheader('F(x) Returns\n')
+        pyplot = model.fx_scatter()
+        pyplot = model.fx_chart()
+        st.write(model.fx())
+
 # # st.sidebar.text("_"*45)
 # pyplot = model.chart
 # pyplot = model.nav
