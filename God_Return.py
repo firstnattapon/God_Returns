@@ -338,7 +338,7 @@ class Run_model(object) :
         plt.plot(god_chart['Cum_Buysell'], color='r',  alpha=0.60 )
         plt.show()
 """
-    st.sidebar.code(code, language='python')
+    st.code(code, language='python')
 
 # # st.sidebar.text("_"*45)
 # pyplot = model.chart
