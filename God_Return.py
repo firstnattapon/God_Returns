@@ -247,13 +247,12 @@ if __name__ == "__main__":
   
     st.write("_"*45)
     st.subheader('Details\n')
-    if st.checkbox('information', value = True)
-        st.subheader('God Returns\n')
+    if st.checkbox('Details', value = True):
+        st.text('God Returns\n')
         pyplot = model.god_chart()
         st.write(model.god_returns())
         st.write("_"*45)
-
-        st.subheader('F(x) Returns\n')
+        st.text('F(x) Returns\n')
         pyplot = model.fx_scatter()
         pyplot = model.fx_chart()
         st.write(model.fx())
