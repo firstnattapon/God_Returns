@@ -82,43 +82,43 @@ class Run_model(object) :
         dataset['sell'] =  dataset.apply(lambda x : np.where(x['F(x)_Action'] == 'sell'  , x.OHLC4 , None) , axis=1)
         plt.figure(figsize=(12,8))
         if self.BuySell :
-            plt.plot(dataset.OHLC4 , color='k' , alpha=0.20 )
-            plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 )
-            plt.plot(dataset.sell , 'o', color='r' , alpha=0.50)    
+            plt.plot(dataset.OHLC4 , color='k' , alpha=0.10 )
+            plt.plot(dataset.buy , 'o',  color='g' , alpha=0.30 )
+            plt.plot(dataset.sell , 'o', color='r' , alpha=0.30)    
         if self.Buyonly :
-            plt.plot(dataset.OHLC4 , color='k' , alpha=0.20 )
-            plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 )
+            plt.plot(dataset.OHLC4 , color='k' , alpha=0.10 )
+            plt.plot(dataset.buy , 'o',  color='g' , alpha=0.30 )
         if self.Sellonly :
-            plt.plot(dataset.OHLC4 , color='k' , alpha=0.20 )
-            plt.plot(dataset.sell , 'o', color='r' , alpha=0.50)    
+            plt.plot(dataset.OHLC4 , color='k' , alpha=0.10 )
+            plt.plot(dataset.sell , 'o', color='r' , alpha=0.30)    
         if self.Buyhold :    
-            plt.plot(dataset.OHLC4 , color='k' , alpha=0.20 )
+            plt.plot(dataset.OHLC4 , color='k' , alpha=0.10 )
         st.pyplot()
         
     def fx_chart (self):
         fx_chart = self.fx()
         plt.figure(figsize=(12,8))
         if self.Buyonly :
-            plt.plot(fx_chart['F(x)_CumBuyonly'], color='k',  alpha=0.60 )
+            plt.plot(fx_chart['F(x)_CumBuyonly'], color='g',  alpha=0.60 )
         if self.Sellonly :
-            plt.plot(fx_chart['F(x)_CumSellonly'], color='g',  alpha=0.60 )
+            plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.60 )
         if self.BuySell :    
-            plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 )
+            plt.plot(fx_chart['F(x)_CumBuySell'], color='k',  alpha=0.60 )
         if self.Buyhold :    
-            plt.plot(fx_chart['F(x)_CumBuyhold'], color='r',  alpha=0.60 )
+            plt.plot(fx_chart['F(x)_CumBuyhold'], color='m',  alpha=0.60 )
         st.pyplot()
 
     def god_chart (self):
         god_chart = self.god_returns()
         plt.figure(figsize=(12,8))
         if self.Buyonly :
-            plt.plot(god_chart['Cum_Godbuyonly'], color='k',  alpha=0.60 )
+            plt.plot(god_chart['Cum_Godbuyonly'], color='g',  alpha=0.60 )
         if self.Sellonly : 
-            plt.plot(god_chart['Cum_Godsellonly'], color='g',  alpha=0.60 )
+            plt.plot(god_chart['Cum_Godsellonly'], color='r',  alpha=0.60 )
         if self.BuySell :
-            plt.plot(god_chart['Cum_Buysell'], color='r',  alpha=0.60 )
+            plt.plot(god_chart['Cum_Buysell'], color='k',  alpha=0.60 )
         if self.Buyhold : 
-            plt.plot(god_chart['Cum_Buyhold'], color='r',  alpha=0.60 )
+            plt.plot(god_chart['Cum_Buyhold'], color='m',  alpha=0.60 )
         st.pyplot()
 
 #____________________________________________________________________________  
@@ -145,7 +145,8 @@ if __name__ == "__main__":
     
     model.input = selectbox('rsi')
     model.length = st.sidebar.slider('length_parameter' , 1 , 60 , 30)
-    
+  
+    st.write("_"*45)
     pyplot = model.god_chart()
     st.write(model.god_returns())
     st.write("_"*45)
