@@ -224,59 +224,6 @@ if __name__ == "__main__":
             </tr>
             </tbody>
             </table><hr>
-            
-            <p><em><strong>God_Returns</strong></em>  Data Frame</p>
-            <table>
-            <thead>
-            <tr>
-            <th>Column</th>
-            <th>ความหมาย</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            <td>Time</td>
-            <td>loop_start ถึง loop_end</td>
-            </tr>
-            <tr>
-            <td>OHLC4</td>
-            <td>(Open + High + low + close / 4)  ตัวแทนของราคา</td>
-            </tr>
-            <tr>
-            <td>Mk_Returntime + 1</td>
-            <td>(Market Returntime time +1 ) ผลตอบแทนของวันพรุ่งนี้</td>
-            </tr>
-            <tr>
-            <td>God_Buysell + 1</td>
-            <td>ผลตอบแทนสูงสุดของ Buy &amp; Sell   ขอของวันพรุ่งนี้</td>
-            </tr>
-            <tr>
-            <td>God_Buyonly + 1</td>
-            <td>ผลตอบแทนสูงสุดของ Buy  ของวันพรุ่งนี้</td>
-            </tr>
-            <tr>
-            <td>God_Sellonly + 1</td>
-            <td>ผลตอบแทนสูงสุดของ Sell   ของวันพรุ่งนี้</td>
-            </tr>
-            <tr>
-            <td>Cum_Godbuyonly</td>
-            <td>Cumulative ผลตอบแทนสะสมของ Buy</td>
-            </tr>
-            <tr>
-            <td>Cum_Godsellonly</td>
-            <td>Cumulative ผลตอบแทนสะสมของ Sell</td>
-            </tr>
-            <tr>
-            <td>Cum_Buysell</td>
-            <td>Cumulative ผลตอบแทนสะสมของ Buysell</td>
-            </tr>
-            <tr>
-            <td>Cum_Buyhold</td>
-            <td>Cumulative  ผลตอบแทนซื้อถือยาว</td>
-            </tr>
-            </tbody>
-            </table><hr>
-            
             </div>	
             </body>
             </html>
