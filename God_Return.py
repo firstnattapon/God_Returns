@@ -120,11 +120,7 @@ class Run_model(object) :
     def Isolate (self):
         fx_chart = self.fx()
         god_chart = self.god_returns()
-        fx_t = fx_chart.reset_index()
-        god_t = god_chart.reset_index()
-        fx_chart = fx_chart[fx_t.t >= god_t.t[0]]
-        god_chart = god_t
-        
+
         plt.figure(figsize=(12,8))
         if self.BuySell:
             plt.plot(god_chart['Cum_Buysell'], color='b',  alpha=0.60  , label= 'Cum_GodmaxBuy&sell')
