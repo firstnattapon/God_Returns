@@ -128,8 +128,8 @@ class Run_model(object) :
         st.pyplot()
         
     def Isolate (self):
-        fx_chart = self.fx()
-        god_chart = self.god_returns()
+        fx_chart = self.fx() ; fx_chart = fx_chart.reset_index()
+        god_chart = self.god_returns()  ; god_chart = god_chart.reset_index()
 
         plt.figure(figsize=(12,8))
         if self.BuySell:
