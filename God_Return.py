@@ -130,6 +130,8 @@ class Run_model(object) :
         st.pyplot()
         
     def Isolate (self):
+        f =  god_returns()
+        g =  fx()
         fx_chart = self.f
         god_chart = self.g
         plt.figure(figsize=(12,8))
