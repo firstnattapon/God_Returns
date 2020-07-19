@@ -130,24 +130,31 @@ class Run_model(object) :
     def Isolate (self):
         fx_chart = self.fx() 
         god_chart = self.god_returns()
-
         plt.figure(figsize=(12,8))
         if self.BuySell:
-            plt.plot(god_chart['Cum_Buysell'], color='b',  alpha=0.60  , label= 'Godmax_Cumulative_Buy&sell')
+            plt.plot(god_chart['Cum_Buysell'], color='b',  alpha=0.60  , label= 'Max_Cumulative_Buy&sell')
             plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 , label= 'F(x)_Cumulative_Buy&Sell')
+            st.write('Max  returns    :' , round(god_chart['Cum_Buysell'][-1],3) *100, '%' )     
+            st.write('F(x) returns    :' , round(fx_chart['F(x)_CumBuySell'][-1],3) *100, '%' )     
         if self.Buyonly:
-            plt.plot(god_chart['Cum_Godbuyonly'], color='b',  alpha=0.40  , label= 'Godmax_Cumulative_Buy')
-            plt.plot(fx_chart['F(x)_CumBuyonly'], color='r',  alpha=0.40 , label= 'F(x)_Cumulative Buy')
+            plt.plot(god_chart['Cum_Godbuyonly'], color='b',  alpha=0.60  , label= 'Max_Cumulative_Buy')
+            plt.plot(fx_chart['F(x)_CumBuyonly'], color='r',  alpha=0.60 , label= 'F(x)_Cumulative Buy')
+            st.write('Max  returns    :' , round(god_chart['Cum_Godbuyonly'][-1],3) *100, '%' )     
+            st.write('F(x) returns    :' , round(fx_chart['F(x)_CumBuyonly'][-1],3) *100, '%' )     
         if self.Sellonly:
-            plt.plot(god_chart['Cum_Godsellonly'], color='b',  alpha=0.20  , label= 'Godmax_Cumulative_Sell')
-            plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.20 ,label= 'F(x)_Cumulative Sell' )
+            plt.plot(god_chart['Cum_Godsellonly'], color='b',  alpha=0.60  , label= 'Max_Cumulative_Sell')
+            plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.60 ,label= 'F(x)_Cumulative Sell' )
+            st.write('Max  returns    :' , round(god_chart['Cum_Godsellonly'][-1],3) *100, '%' )     
+            st.write('F(x) returns    :' , round(fx_chart['F(x)_CumSellonly'][-1],3) *100, '%' )     
         if self.Buyhold:
             plt.plot(god_chart['Cum_Buyhold'], color='k',  alpha=0.60  , label= 'Cum_Buyhold' )
+            st.write('Buyhold returns    :' , god_chart['Cum_Buyhold'][-1],3) *100, '%' )
         plt.axhline(y=0.0, color='k', linestyle='-.')
         plt.legend(fontsize=12)
         plt.xlabel('cycle',fontsize=14)
         plt.ylabel('%',fontsize=14)
         st.pyplot()
+
         
 #____________________________________________________________________________  
 
