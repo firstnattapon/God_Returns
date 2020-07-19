@@ -120,7 +120,7 @@ class Run_model(object) :
     def Isolate (self):
         fx_chart = self.fx()
         god_chart = self.god_returns()
-        fx_chart = fx_chart[fx_chart.t >= god_chart[0]]
+        fx_chart = fx_chart[fx_chart.index >= god_chart.index[0]]
         
         plt.figure(figsize=(12,8))
         if self.BuySell:
