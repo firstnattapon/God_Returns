@@ -444,7 +444,8 @@ if __name__ == "__main__":
             plt.show()
     """
         st.code(code, language='python')
-        st.write("_"*45)
+        
+    st.write("_"*45)
     st.write("MudleyAcademy NO.43: Xrp:rpXTzCuXtjiPDFysxq8uNmtZBe9Xo97JbW, Tag:1024466261")
 
 # # st.sidebar.text("_"*45)
