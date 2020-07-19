@@ -117,6 +117,26 @@ class Run_model(object) :
         plt.ylabel('%',fontsize=14)
         st.pyplot()
         
+    def Isolate (self):
+        fx_chart = self.fx()
+        god_chart = self.god_returns()
+        plt.figure(figsize=(12,8))
+        if self.BuySell:
+            plt.plot(god_chart['Cum_Buysell'], color='b',  alpha=0.60  , label= 'Cum_GodmaxBuy&sell')
+            plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 , label= 'F(x)_CumBuy&Sell')
+        if self.Buyonly:
+            plt.plot(god_chart['Cum_Godbuyonly'], color='b',  alpha=0.60  , label= 'Cum_Godmaxbuy')
+            plt.plot(fx_chart['F(x)_CumBuyonly'], color='r',  alpha=0.60 , label= 'F(x)_CumBuy')
+        if self.Sellonly:
+            plt.plot(god_chart['Cum_Godsellonly'], color='b',  alpha=0.60  , label= 'Cum_Godmaxsell')
+            plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.60 ,label= 'F(x)_CumSell' )
+        if self.Buyhold:
+            plt.plot(god_chart['Cum_Buyhold'], color='k',  alpha=0.60  , label= 'Cum_Buyhold' )
+        plt.axhline(y=0.0, color='k', linestyle='-.')
+        plt.xlabel('cycle',fontsize=14)
+        plt.ylabel('%',fontsize=14)
+        st.pyplot()
+        
 #____________________________________________________________________________  
 
 if __name__ == "__main__":
@@ -286,6 +306,8 @@ if __name__ == "__main__":
     st.write("_"*45)
     st.subheader('Method Isolate\n')
     model =  Run_model()
+    Isolate = model.Isolate()
+    
     st.sidebar.header('Input Parameter\n')
     selectbox = lambda y : st.sidebar.selectbox('input F(x)',
             ( y ,'ad','ao','atr','bop','cci','cg','cmf','cmo','coppock',
@@ -312,9 +334,9 @@ if __name__ == "__main__":
         god = model.god_returns()
         st.write(god)
         st.write('Cumulative GodmaxBuy  :', round(god['Cum_Godbuyonly'][-1],3) *100, '%' )                                                                   
-        st.write('Cumulative GodmaxSell :',round (god['Cum_Godsellonly'][-1],3) *100, '%' )     
-        st.write('Cumulative GodBuy&Sell:',round (god['Cum_Buysell'][-1],3) *100, '%' )       
-        st.write('Cumulative Buyhold    :',round (god['Cum_Buyhold'][-1],3) *100, '%' )       
+        st.write('Cumulative GodmaxSell :', round(god['Cum_Godsellonly'][-1],3) *100, '%' )     
+        st.write('Cumulative GodBuy&Sell:', round(god['Cum_Buysell'][-1],3) *100, '%' )       
+        st.write('Cumulative Buyhold    :', round(god['Cum_Buyhold'][-1],3) *100, '%' )       
         st.write("_"*45)
         
         st.subheader('F(x) Returns\n')
@@ -322,8 +344,8 @@ if __name__ == "__main__":
         pyplot = model.fx_chart()
         fx = model.fx()
         st.write(fx)
-        st.write('Cumulative Buy     :' ,round( fx['F(x)_CumBuyonly'][-1],3) *100, '%' )     
-        st.write('Cumulative Sell    :' ,round(fx['F(x)_CumSellonly'][-1],3) *100, '%' )     
+        st.write('Cumulative Buy     :' , round(fx['F(x)_CumBuyonly'][-1],3) *100, '%' )     
+        st.write('Cumulative Sell    :' , round(fx['F(x)_CumSellonly'][-1],3) *100, '%' )     
         st.write('Cumulative Buy&Sell:' , round(fx['F(x)_CumBuySell'][-1],3) *100, '%' )     
         st.write('Cumulative Buyhold :' , round(fx['F(x)_CumBuyhold'][-1],3) *100, '%' )     
     
