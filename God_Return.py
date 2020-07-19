@@ -317,6 +317,7 @@ if __name__ == "__main__":
         
     st.write("_"*45)
     st.subheader('Method Isolate\n')
+    st.sidebar.header('Input Parameter\n')
     model =  Run_model()
     model.pair_data =   st.sidebar.selectbox('data' ,('BTC-PERP', 'XRP-PERP'))
     model.timeframe =   st.sidebar.selectbox('timeframe',('1h', '4h' ,'1d' ,'1w'))
@@ -335,7 +336,6 @@ if __name__ == "__main__":
     model.input = selectbox('skew')
     model.length = st.sidebar.slider('length_parameter' , 1 , 30 , 15)
     Isolate = model.Isolate()
-    st.sidebar.header('Input Parameter\n')
 
     st.write("_"*45)
     st.subheader('Details\n')
