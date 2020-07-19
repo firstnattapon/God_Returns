@@ -97,8 +97,8 @@ class Run_model(object) :
         plt.plot(dataset.buy , 'o',  color='g' , alpha=0.50 ,  label= 'fxtoaction = buy')
         plt.plot(dataset.sell , 'o', color='r' , alpha=0.50 ,  label= 'fxtoaction = sell')
         plt.legend(fontsize=12)
-        plt.xlabel('price',fontsize=14)
-        plt.ylabel('%',fontsize=14)
+        plt.xlabel('cycle',fontsize=14)
+        plt.ylabel('price',fontsize=14)
         st.pyplot()
         
     def fx_chart (self):
