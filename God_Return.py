@@ -53,7 +53,7 @@ class Run_model(object) :
         df = df.rename(columns={"o": "open", "h": "high"  , "l": "low", "c": "close" , "v": "volume"})
         dataset = df  ; dataset = dataset.dropna()
         dataset.ta.ohlc4(append=True)
-        return df
+        return dataset
 
     def god_returns (self):
         god_returns = self.god_represent()
