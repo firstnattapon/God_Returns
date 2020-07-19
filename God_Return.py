@@ -62,9 +62,12 @@ class Run_model(object) :
         god_returns['God_Buyonly+1'] = np.where( god_returns['Mk_Returntime+1'] > 0 ,  god_returns['Mk_Returntime+1']    , 0  )
         god_returns['God_Sellonly+1'] = np.where( god_returns['Mk_Returntime+1'] < 0 ,  abs(god_returns['Mk_Returntime+1'])    , 0  )
         god_returns['God_Buysell+1'] = np.where( True ,  abs(god_returns['Mk_Returntime+1'])  ,  abs(god_returns['Mk_Returntime+1'])  )
+         god_returns['Cum_Godbuyonly'] = 0.
         god_returns['Cum_Godbuyonly'] = np.cumsum(god_returns['God_Buyonly+1'])
+        god_returns['Cum_Godsellonly'] = 0.
         god_returns['Cum_Godsellonly'] = np.cumsum(god_returns['God_Sellonly+1'])
         god_returns['Cum_Buysell'] = np.cumsum(god_returns['God_Buysell+1'])
+        god_returns['Cum_Buyhold'] = 0.
         god_returns['Cum_Buyhold']  = np.cumsum(god_returns['Mk_Returntime+1'])
         god_returns = god_returns.iloc[: , -9:]
         god_returns = god_returns.dropna()
@@ -79,11 +82,15 @@ class Run_model(object) :
         fx = fx.iloc[: , 5:] ; fx_toaction = fx
         fx_toaction['F(x)_Action'] = np.where( fx_toaction['F(x)'].shift(1) <  fx_toaction['F(x)'].shift(0)  , 'buy' , 'sell' )
         fx_toaction['F(x)_BuyReturn'] = np.where(fx_toaction['F(x)_Action'] == 'buy'  , fx_toaction['Mk_Returntime+1'] ,  0)
+        fx_toaction['F(x)_CumBuyonly'] = 0.
         fx_toaction['F(x)_CumBuyonly'] = np.cumsum(fx_toaction['F(x)_BuyReturn'])
         fx_toaction['F(x)_SellReturn'] = np.where(fx_toaction['F(x)_Action'] == 'sell'  , -fx_toaction['Mk_Returntime+1'] ,  0)
+        fx_toaction['F(x)_CumSellonly'] = 0.
         fx_toaction['F(x)_CumSellonly'] = np.cumsum(fx_toaction['F(x)_SellReturn'])
         fx_toaction['F(x)_BuySellReturn'] = np.where( fx_toaction['F(x)_Action'] == 'buy' , fx_toaction['Mk_Returntime+1'] , -fx_toaction['Mk_Returntime+1'])
+        fx_toaction['F(x)_CumBuySell'] = 0.
         fx_toaction['F(x)_CumBuySell'] = np.cumsum(fx_toaction['F(x)_BuySellReturn'])
+        fx_toaction['F(x)_CumBuyhold'] =   0.
         fx_toaction['F(x)_CumBuyhold']  = np.cumsum(fx_toaction['Mk_Returntime+1'])
         fx_toaction = fx_toaction.dropna()
         return  fx_toaction
