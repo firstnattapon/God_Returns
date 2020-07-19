@@ -56,7 +56,7 @@ class Run_model(object) :
         return dataset
 
     def god_returns (self):
-        god_returns = self.represent()
+        god_returns = self.god_represent()
         god_returns['Mk_Returntime+1']  = np.log(god_returns['OHLC4'] / god_returns['OHLC4'].shift(1))
         god_returns['Mk_Returntime+1'] = god_returns['Mk_Returntime+1'].shift(-1)
         god_returns['God_Buyonly+1'] = np.where( god_returns['Mk_Returntime+1'] > 0 ,  god_returns['Mk_Returntime+1']    , 0  )
@@ -71,7 +71,7 @@ class Run_model(object) :
         return god_returns
 
     def fx (self):
-        fx = self.god_represent()
+        fx = self.represent()
         fx['Mk_Returntime+1']  = np.log(fx['OHLC4'] / fx['OHLC4'].shift(1))
         fx['Mk_Returntime+1'] = fx['Mk_Returntime+1'].shift(-1)
         try: fx['F(x)'] = fx.ta(kind =self.input , length= self.length , scalar=1 , append=False)
