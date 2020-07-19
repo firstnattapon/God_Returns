@@ -67,7 +67,7 @@ class Run_model(object) :
         god_returns['Cum_Buysell'] = np.cumsum(god_returns['God_Buysell+1'])
         god_returns['Cum_Buyhold']  = np.cumsum(god_returns['Mk_Returntime+1'])
         god_returns = god_returns.iloc[: , -9:]
-        god_returns = god_returns.dropna()
+#         god_returns = god_returns.dropna()
         return god_returns
 
     def fx (self):
@@ -85,7 +85,7 @@ class Run_model(object) :
         fx_toaction['F(x)_BuySellReturn'] = np.where( fx_toaction['F(x)_Action'] == 'buy' , fx_toaction['Mk_Returntime+1'] , -fx_toaction['Mk_Returntime+1'])
         fx_toaction['F(x)_CumBuySell'] = np.cumsum(fx_toaction['F(x)_BuySellReturn'])
         fx_toaction['F(x)_CumBuyhold']  = np.cumsum(fx_toaction['Mk_Returntime+1'])
-        fx_toaction = fx_toaction.dropna()
+#         fx_toaction = fx_toaction.dropna()
         return  fx_toaction
 
     def fx_scatter (self):
