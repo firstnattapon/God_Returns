@@ -128,8 +128,8 @@ class Run_model(object) :
         st.pyplot()
         
     def Isolate (self):
-        fx_chart = self.god_returns()
-        god_chart = self.fx()
+        god_chart = self.god_returns()
+        fx_chart = self.fx()
         plt.figure(figsize=(12,8))
         if self.BuySell:
             plt.plot(god_chart['Cum_Buysell'], color='b',  alpha=0.60  , label= 'Max_Cumulative_Buy&sell = {:.2f}%'.format(god_chart['Cum_Buysell'][-1]*100))
