@@ -132,14 +132,14 @@ class Run_model(object) :
         god_chart = self.god_returns()
         plt.figure(figsize=(12,8))
         if self.BuySell:
-            plt.plot(god_chart['Cum_Buysell'], color='b',  alpha=0.60  , label= 'Max_Cumulative_Buy&sell = {:.2f}%'.format(god_chart['Cum_Buysell'][-1]))
-            plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 , label= 'F(x)_Cumulative_Buy&Sell = {:.2f}%'.format(fx_chart['F(x)_CumBuySell'][-1]))
+            plt.plot(god_chart['Cum_Buysell'], color='b',  alpha=0.60  , label= 'Max_Cumulative_Buy&sell = {:.2f}%'.format(god_chart['Cum_Buysell'][-1]*100))
+            plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 , label= 'F(x)_Cumulative_Buy&Sell = {:.2f}%'.format(fx_chart['F(x)_CumBuySell'][-1]*100))
         if self.Buyonly:
-            plt.plot(god_chart['Cum_Godbuyonly'], color='b',  alpha=0.60  , label= 'Max_Cumulative_Buy = {:.2f}%'.format(god_chart['Cum_Godbuyonly'][-1]))
-            plt.plot(fx_chart['F(x)_CumBuyonly'], color='r',  alpha=0.60 , label= 'F(x)_Cumulative Buy = {:.2f}%'.format(fx_chart['F(x)_CumBuyonly'][-1]))
+            plt.plot(god_chart['Cum_Godbuyonly'], color='b',  alpha=0.60  , label= 'Max_Cumulative_Buy = {:.2f}%'.format(god_chart['Cum_Godbuyonly'][-1]*100))
+            plt.plot(fx_chart['F(x)_CumBuyonly'], color='r',  alpha=0.60 , label= 'F(x)_Cumulative Buy = {:.2f}%'.format(fx_chart['F(x)_CumBuyonly'][-1]*100))
         if self.Sellonly:
-            plt.plot(god_chart['Cum_Godsellonly'], color='b',  alpha=0.60  , label= 'Max_Cumulative_Sell = {:.2f}%'.format(god_chart['Cum_Godsellonly'][-1])) 
-            plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.60 ,label= 'F(x)_Cumulative Sell = {:.2f}%'.format(fx_chart['F(x)_CumSellonly'][-1]))     
+            plt.plot(god_chart['Cum_Godsellonly'], color='b',  alpha=0.60  , label= 'Max_Cumulative_Sell = {:.2f}%'.format(god_chart['Cum_Godsellonly'][-1]*100)) 
+            plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.60 ,label= 'F(x)_Cumulative Sell = {:.2f}%'.format(fx_chart['F(x)_CumSellonly'][-1]*100))     
         if self.Buyhold:
             plt.plot(god_chart['Cum_Buyhold'], color='k',  alpha=0.60  , label= 'Cum_Buyhold = {:.2f}%'.format(god_chart['Cum_Buyhold'][-1])) 
         plt.axhline(y=0.0, color='k', linestyle='-.')
