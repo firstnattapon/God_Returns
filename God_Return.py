@@ -52,7 +52,7 @@ class Run_model(object) :
         df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
         df = df.rename(columns={"o": "open", "h": "high"  , "l": "low", "c": "close" , "v": "volume"})
         dataset = df  ; dataset = dataset.dropna()
-        dataset.ta.ohlc4(append=True)
+        dataset['OHLC4'] =  dataset.ta.ohlc4(append=0)
         return dataset
 
     def god_returns (self):
