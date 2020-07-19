@@ -71,7 +71,7 @@ class Run_model(object) :
         return god_returns
 
     def fx (self):
-        fx = self.represent()
+        fx = self.god_represent()
         fx['Mk_Returntime+1']  = np.log(fx['OHLC4'] / fx['OHLC4'].shift(1))
         fx['Mk_Returntime+1'] = fx['Mk_Returntime+1'].shift(-1)
         try: fx['F(x)'] = fx.ta(kind =self.input , length= self.length , scalar=1 , append=False)
