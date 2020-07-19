@@ -62,7 +62,7 @@ class Run_model(object) :
         god_returns['God_Buyonly+1'] = np.where( god_returns['Mk_Returntime+1'] > 0 ,  god_returns['Mk_Returntime+1']    , 0  )
         god_returns['God_Sellonly+1'] = np.where( god_returns['Mk_Returntime+1'] < 0 ,  abs(god_returns['Mk_Returntime+1'])    , 0  )
         god_returns['God_Buysell+1'] = np.where( True ,  abs(god_returns['Mk_Returntime+1'])  ,  abs(god_returns['Mk_Returntime+1'])  )
-         god_returns['Cum_Godbuyonly'] = 0.
+        god_returns['Cum_Godbuyonly'] = 0.
         god_returns['Cum_Godbuyonly'] = np.cumsum(god_returns['God_Buyonly+1'])
         god_returns['Cum_Godsellonly'] = 0.
         god_returns['Cum_Godsellonly'] = np.cumsum(god_returns['God_Sellonly+1'])
