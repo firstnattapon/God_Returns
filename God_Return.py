@@ -51,7 +51,7 @@ class Run_model(object) :
         df = df[df.t >= fx_t.t[0]] 
         df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
         df = df.rename(columns={"o": "open", "h": "high"  , "l": "low", "c": "close" , "v": "volume"})
-        dataset = df  ; dataset = dataset.dropna()
+        dataset = df  ; #dataset = dataset.dropna()
         dataset['OHLC4'] =  dataset.ta.ohlc4(append=0)
         return dataset
 
