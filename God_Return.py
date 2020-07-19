@@ -68,7 +68,6 @@ class Run_model(object) :
         god_returns['Cum_Buyhold']  = np.cumsum(god_returns['Mk_Returntime+1'])
         god_returns = god_returns.iloc[: , -9:]
         god_returns = god_returns.dropna()
-        self.g = god_returns
         return god_returns
 
     def fx (self):
@@ -87,7 +86,6 @@ class Run_model(object) :
         fx_toaction['F(x)_CumBuySell'] = np.cumsum(fx_toaction['F(x)_BuySellReturn'])
         fx_toaction['F(x)_CumBuyhold']  = np.cumsum(fx_toaction['Mk_Returntime+1'])
         fx_toaction = fx_toaction.dropna()
-        self.f = fx_toaction
         return  fx_toaction
 
     def fx_scatter (self):
@@ -130,10 +128,8 @@ class Run_model(object) :
         st.pyplot()
         
     def Isolate (self):
-        f =  god_returns()
-        g =  fx()
-        fx_chart = self.f
-        god_chart = self.g
+        fx_chart = self.god_returns()
+        god_chart = self.fx()
         plt.figure(figsize=(12,8))
         if self.BuySell:
             plt.plot(god_chart['Cum_Buysell'], color='b',  alpha=0.60  , label= 'Max_Cumulative_Buy&sell = {:.2f}%'.format(god_chart['Cum_Buysell'][-1]*100))
