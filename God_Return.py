@@ -48,11 +48,11 @@ class Run_model(object) :
     def god_represent (self):
         fx = self.fx() ; fx_t = fx.reset_index()
         df =  self.dataset()
-        df = df[df.t >= fx_t.t[0]] ;  #df = df[df.t <= fx_t.t[0]]
+        df = df[df.t >= fx_t.t[0]] 
         df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
         df = df.rename(columns={"o": "open", "h": "high"  , "l": "low", "c": "close" , "v": "volume"})
         dataset = df  ; dataset = dataset.dropna()
-        df = self.loop ; df.ta.ohlc4(append=True)
+        dataset.ta.ohlc4(append=True)
         return df
 
     def god_returns (self):
