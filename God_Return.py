@@ -17,7 +17,7 @@ class Run_model(object) :
         self.timeframe  = "1h"  
         self.loop_start = dt.datetime(2020, 6 , 30  , 0, 0)
         self.loop_end   = dt.datetime(2020, 7 , 10  , 0, 0)
-        self.input      = 'rsi'
+        self.input      = 'skew'
         self.length     = 30
         self.BuySell    = st.checkbox('BuySell', value = True)
         self.Buyonly    = st.checkbox("Buyonly")
@@ -288,22 +288,21 @@ if __name__ == "__main__":
     model =  Run_model()
     st.sidebar.header('Input Parameter\n')
     selectbox = lambda y : st.sidebar.selectbox('input F(x)',
-            ( y ,'accbands','ad','adx','ao','aroon','atr','bbands',
-            'bop','cci','cg','cmf','cmo','coppock','cross','decreasing','dema',
-            'donchian','dpo','efi','ema','eom','fwma','hl2','hlc3','hma','ichimoku',
-            'increasing','kc','kst','kurtosis','linear_decay','linreg','log_return',
-            'long_run','mad','median','mfi','midpoint','midprice','mom','natr',
+            ( y ,'ad','ao','atr','bop','cci','cg','cmf','cmo','coppock',
+             'dpo','efi','ema','eom','fwma','hl2','hlc3','hma',
+            'increasing','kurtosis','linear_decay','linreg','log_return',
+             'mad','median','mfi','midpoint','midprice','mom','natr',
             'nvi','obv','ohlc4','percent_return','pvi','pvol','pvt','pwma','qstick',
-            'quantile','rma','roc','rsi','rvi','short_run','sinwma','skew','slope','sma',
-            'stdev','stoch','swma','t3','tema','trima','true_range','uo','variance',
-            'vortex','vp','vwap','vwma','willr','wma','zlma','zscore'))
+            'quantile','rma','roc','rsi','sinwma','skew','slope','sma',
+            'stdev','swma','t3','tema','trima','true_range','uo','variance',
+             'vwap','vwma','willr','wma','zlma','zscore'))
     
     model.pair_data =   st.sidebar.selectbox('data' ,('BTC-PERP', 'XRP-PERP'))
     model.timeframe =   st.sidebar.selectbox('timeframe',('1h', '4h' ,'1d' ,'1w'))
     model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
     model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 18, 0, 0)))
     
-    model.input = selectbox('rsi')
+    model.input = selectbox('skew')
     model.length = st.sidebar.slider('length_parameter' , 1 , 30 , 15)
     st.write("_"*45)
     st.subheader('Details\n')
