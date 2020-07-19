@@ -46,13 +46,13 @@ class Run_model(object) :
         return df
     
     def god_represent (self):
-        fx = self.fx()
+        fx = self.fx() ; fx_t = fx.reset_index()
         df =  self.dataset()
         df = df[df.t >= fx_t.t[0]]  ;  df = df[df.t <= self.loop_end  ] 
         df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
         df = df.rename(columns={"o": "open", "h": "high"  , "l": "low", "c": "close" , "v": "volume"})
         dataset = df  ; dataset = dataset.dropna()
-        dataset['OHLC4'] =  dataset.ta.ohlc4(append=0)
+        dataset.ta.ohlc4(append=True)
         return dataset
 
     def god_returns (self):
@@ -128,22 +128,21 @@ class Run_model(object) :
         st.pyplot()
         
     def Isolate (self):
-        fx_chart = self.fx() ; fx_chart = fx_chart.reset_index()
-        god_chart = self.god_returns()  ; god_chart = god_chart.reset_index()
+        fx_chart = self.fx() 
+        god_chart = self.god_returns()
 
         plt.figure(figsize=(12,8))
         if self.BuySell:
-            plt.plot(god_chart['Cum_Buysell'], color='b',  alpha=0.60  , label= 'Cum_GodmaxBuy&sell')
-            plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 , label= 'F(x)_CumBuy&Sell')
+            plt.plot(god_chart['Cum_Buysell'], color='b',  alpha=0.60  , label= 'Godmax_Cumulative_Buy&sell')
+            plt.plot(fx_chart['F(x)_CumBuySell'], color='r',  alpha=0.60 , label= 'F(x)_Cumulative_Buy&Sell')
         if self.Buyonly:
-            plt.plot(god_chart['Cum_Godbuyonly'], color='b',  alpha=0.60  , label= 'Cum_Godmaxbuy')
-            plt.plot(fx_chart['F(x)_CumBuyonly'], color='r',  alpha=0.60 , label= 'F(x)_CumBuy')
+            plt.plot(god_chart['Cum_Godbuyonly'], color='b',  alpha=0.40  , label= 'Godmax_Cumulative_Buy')
+            plt.plot(fx_chart['F(x)_CumBuyonly'], color='r',  alpha=0.40 , label= 'F(x)_Cumulative Buy')
         if self.Sellonly:
-            plt.plot(god_chart['Cum_Godsellonly'], color='b',  alpha=0.60  , label= 'Cum_Godmaxsell')
-            plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.60 ,label= 'F(x)_CumSell' )
+            plt.plot(god_chart['Cum_Godsellonly'], color='b',  alpha=0.20  , label= 'Godmax_Cumulative_Sell')
+            plt.plot(fx_chart['F(x)_CumSellonly'], color='r',  alpha=0.20 ,label= 'F(x)_Cumulative Sell' )
         if self.Buyhold:
             plt.plot(god_chart['Cum_Buyhold'], color='k',  alpha=0.60  , label= 'Cum_Buyhold' )
-            
         plt.axhline(y=0.0, color='k', linestyle='-.')
         plt.legend(fontsize=12)
         plt.xlabel('cycle',fontsize=14)
