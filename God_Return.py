@@ -318,8 +318,11 @@ if __name__ == "__main__":
     st.write("_"*45)
     st.subheader('Method Isolate\n')
     model =  Run_model()
+    model.pair_data =   st.sidebar.selectbox('data' ,('BTC-PERP', 'XRP-PERP'))
+    model.timeframe =   st.sidebar.selectbox('timeframe',('1h', '4h' ,'1d' ,'1w'))
+    model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
+    model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 18, 0, 0)))
     Isolate = model.Isolate()
-    
     st.sidebar.header('Input Parameter\n')
     selectbox = lambda y : st.sidebar.selectbox('input F(x)',
             ( y ,'ad','ao','atr','bop','cci','cg','cmf','cmo','coppock',
@@ -330,11 +333,7 @@ if __name__ == "__main__":
             'quantile','rma','roc','rsi','sinwma','skew','slope','sma',
             'stdev','swma','t3','tema','trima','true_range','uo','variance',
              'vwap','vwma','willr','wma','zlma','zscore'))
-    
-    model.pair_data =   st.sidebar.selectbox('data' ,('BTC-PERP', 'XRP-PERP'))
-    model.timeframe =   st.sidebar.selectbox('timeframe',('1h', '4h' ,'1d' ,'1w'))
-    model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
-    model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 18, 0, 0)))
+   
     
     model.input = selectbox('skew')
     model.length = st.sidebar.slider('length_parameter' , 1 , 30 , 15)
