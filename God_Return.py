@@ -148,7 +148,7 @@ class Run_model(object) :
             st.write('F(x) returns    :' , round(fx_chart['F(x)_CumSellonly'][-1],3) *100, '%' )     
         if self.Buyhold:
             plt.plot(god_chart['Cum_Buyhold'], color='k',  alpha=0.60  , label= 'Cum_Buyhold' )
-            st.write('Buyhold returns    :' , god_chart['Cum_Buyhold'][-1],3) *100, '%' )
+            st.write('Buyhold returns    :' , round(god_chart['Cum_Buyhold'][-1],3) *100, '%' ) 
         plt.axhline(y=0.0, color='k', linestyle='-.')
         plt.legend(fontsize=12)
         plt.xlabel('cycle',fontsize=14)
