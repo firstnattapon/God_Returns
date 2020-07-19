@@ -56,7 +56,7 @@ class Run_model(object) :
         return dataset
 
     def god_returns (self):
-        god_returns = self.god_represent()
+        god_returns = self.represent()
         god_returns['Mk_Returntime+1']  = np.log(god_returns['OHLC4'] / god_returns['OHLC4'].shift(1))
         god_returns['Mk_Returntime+1'] = god_returns['Mk_Returntime+1'].shift(-1)
         god_returns['God_Buyonly+1'] = np.where( god_returns['Mk_Returntime+1'] > 0 ,  god_returns['Mk_Returntime+1']    , 0  )
