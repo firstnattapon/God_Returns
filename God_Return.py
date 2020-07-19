@@ -67,7 +67,7 @@ class Run_model(object) :
         god_returns['Cum_Buysell'] = np.cumsum(god_returns['God_Buysell+1'])
         god_returns['Cum_Buyhold']  = np.cumsum(god_returns['Mk_Returntime+1'])
         god_returns = god_returns.iloc[: , -9:]
-#         god_returns = god_returns.dropna()
+        god_returns = god_returns.dropna()
         return god_returns
 
     def fx (self):
@@ -85,7 +85,7 @@ class Run_model(object) :
         fx_toaction['F(x)_BuySellReturn'] = np.where( fx_toaction['F(x)_Action'] == 'buy' , fx_toaction['Mk_Returntime+1'] , -fx_toaction['Mk_Returntime+1'])
         fx_toaction['F(x)_CumBuySell'] = np.cumsum(fx_toaction['F(x)_BuySellReturn'])
         fx_toaction['F(x)_CumBuyhold']  = np.cumsum(fx_toaction['Mk_Returntime+1'])
-#         fx_toaction = fx_toaction.dropna()
+        fx_toaction = fx_toaction.dropna()
         return  fx_toaction
 
     def fx_scatter (self):
@@ -322,6 +322,9 @@ if __name__ == "__main__":
     model.timeframe =   st.sidebar.selectbox('timeframe',('1h', '4h' ,'1d' ,'1w'))
     model.loop_start =  np.datetime64(st.sidebar.date_input('loop_start', value= dt.datetime(2020, 7, 10, 0, 0)))
     model.loop_end =    np.datetime64(st.sidebar.date_input('loop_end', value= dt.datetime(2020, 7, 18, 0, 0)))
+    model.input = selectbox('skew')
+    model.length = st.sidebar.slider('length_parameter' , 1 , 30 , 15)
+
     Isolate = model.Isolate()
     st.sidebar.header('Input Parameter\n')
     selectbox = lambda y : st.sidebar.selectbox('input F(x)',
@@ -333,10 +336,7 @@ if __name__ == "__main__":
             'quantile','rma','roc','rsi','sinwma','skew','slope','sma',
             'stdev','swma','t3','tema','trima','true_range','uo','variance',
              'vwap','vwma','willr','wma','zlma','zscore'))
-   
-    
-    model.input = selectbox('skew')
-    model.length = st.sidebar.slider('length_parameter' , 1 , 30 , 15)
+
     st.write("_"*45)
     st.subheader('Details\n')
     if st.checkbox('Details', value = True):
