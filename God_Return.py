@@ -44,9 +44,19 @@ class Run_model(object) :
     def represent (self):
         df = self.loop ; df.ta.ohlc4(append=True)
         return df
+    
+    def god_represent (self):
+        fx = self.fx() ; fx_t = fx.reset_index()
+        df =  self.dataset()
+        df = df[df.t >= fx_t.t[-1]] ;  df = df[df.t <= fx_t.t[0]]
+        df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
+        df = df.rename(columns={"o": "open", "h": "high"  , "l": "low", "c": "close" , "v": "volume"})
+        dataset = df  ; dataset = dataset.dropna()
+        df = self.loop ; df.ta.ohlc4(append=True)
+        return df
 
     def god_returns (self):
-        god_returns = self.represent()
+        god_returns = self.god_represent()
         god_returns['Mk_Returntime+1']  = np.log(god_returns['OHLC4'] / god_returns['OHLC4'].shift(1))
         god_returns['Mk_Returntime+1'] = god_returns['Mk_Returntime+1'].shift(-1)
         god_returns['God_Buyonly+1'] = np.where( god_returns['Mk_Returntime+1'] > 0 ,  god_returns['Mk_Returntime+1']    , 0  )
